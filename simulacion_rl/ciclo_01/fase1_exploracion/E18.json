@@ -1,0 +1,12 @@
+{
+  "id_propuesta": "E18_minerales_na2so4_dcp_gaa",
+  "agente_id": "E18",
+  "titulo": "Caliza regional + DCP + Sulfato de sodio anhidro + GAA (CreAMINO)",
+  "cambios_ingredientes": [{ "id": "caco3", "precio": 200 }],
+  "nuevos_ingredientes": [
+    { "id": "dcp", "nombre": "Fosfato dicálcico (18,5% Pd, 22% Ca)", "precio": 3700, "min": 0, "max": 0.03, "max_F1": 0.03, "max_F2": 0.03, "Ca": 22.0, "Pd": 18.5 },
+    { "id": "na2so4", "nombre": "Sulfato de sodio anhidro (32,4% Na, 0% Cl)", "precio": 1800, "min": 0, "max": 0.003, "max_F1": 0.003, "max_F2": 0.003, "Na": 32.4 },
+    { "id": "gaa", "nombre": "Ácido guanidinoacético 96% (GAA)", "precio": 28000, "min": 0, "max": 0.0006, "max_F1": 0.0006, "max_F2": 0.0006, "EM": 83000, "PC": 221, "Arg": 77 }
+  ],
+  "supuesto_clave_a_validar": "Cotización puesta en Cúcuta de caliza malla 100 ($200/kg), DCP 18,5% ($3.700/kg), Na2SO4 anhidro ($1.800/kg) y GAA 96% ($28.000/kg)."
+}

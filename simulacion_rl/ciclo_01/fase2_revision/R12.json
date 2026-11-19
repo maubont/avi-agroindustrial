@@ -1,0 +1,8 @@
+{
+  "id_propuesta": "R12_molienda_practica_arranque",
+  "agente_id": "R12",
+  "titulo": "Martillos con variador VFD (criba 6-7 mm) + zaranda recirculadora en solo maíz (GMD 1.150-1.350 um)",
+  "supuesto_clave_a_validar": "Validar en piloto d21-42 que moler solo maíz con martillos VFD (60-70% RPM, criba 6-7 mm) + zaranda recirculadora (>2 mm) reduce finos <0.5 mm y baja penalizacion_conversion_harina_pct de 6.5% a 3.8% con CAPEX $18M COP.",
+  "capex_adicional_cop": 18000000,
+  "cambios_negocio": { "energia_molienda_mezcla": 34, "merma_pct_materias_primas": 0.8, "penalizacion_conversion_harina_pct": 3.8 }
+}

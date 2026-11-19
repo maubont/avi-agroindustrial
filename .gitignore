@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.key
+avicola_app/data/
+~$*.xlsx
+*.tmp*
+*.log
+__pycache__/
+.venv/

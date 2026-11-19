@@ -1,0 +1,16 @@
+{
+  "id_propuesta": "R01_nsp_ajustado",
+  "agente_id": "R01",
+  "titulo": "Multi-NSP pre-diluido 1:10 (3.0 kg/t = 300 g/t enzima + CaCO3, $5.850/kg): matriz conservadora y FPKC 6%/12%",
+  "nuevos_ingredientes": [
+    { "id": "enz_nsp_predil", "nombre": "Coctel multi-NSP pre-diluido 1:10 (300 g/t enzima + 2.7 kg/t CaCO3)", "precio": 5850, "min": 0, "max": 0.004, "max_F1": 0.004, "max_F2": 0.004, "EM": 13333, "Ca": 34.2, "Lys": 1.67, "MC": 1.0, "Thr": 1.33, "Ile": 1.0, "Val": 1.33 }
+  ],
+  "cambios_fijos_kg_t": { "enz_nsp_predil": 3.0 },
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc", "permitir": true, "max_F1": 0.06, "max_F2": 0.12, "max_permitido_F1": 0.06, "max_permitido_F2": 0.12,
+      "nutrientes": { "EM": 1902, "Lys": 0.439, "Met": 0.293, "MC": 0.523, "Trp": 0.146, "Thr": 0.481, "Val": 0.752, "Ile": 0.564, "Arg": 1.515 }
+    }
+  ],
+  "supuesto_clave_a_validar": "Pre-dilucion 1:10 (CV <8%, costo $17.550/t) valida +40 kcal/kg EM en maiz-soya y +160 kcal/kg (+4.5% AA) en FPKC con cama seca hasta 12% FPKC en F2 a 32 C"
+}

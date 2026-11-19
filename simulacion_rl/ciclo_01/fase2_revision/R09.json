@@ -1,0 +1,10 @@
+{
+  "id_propuesta": "R09_proteina_alternativa_depurada",
+  "agente_id": "R09",
+  "titulo": "Depuración práctica: solo Harina de Vísceras Avícola + HCH Porcina ICA (descarta DDGS, Canola, Soya FF y Gluten 60)",
+  "supuesto_clave_a_validar": "Abastecimiento desde Santander (Bucaramanga) con registro ICA Res. 61252/2020 libre de rumiante, Salmonella negativa, peróxidos <10 mEq/kg, control Ca/P por lote en HCH y estiba segregada",
+  "nuevos_ingredientes": [
+    { "id": "h_visceras", "nombre": "Harina de vísceras avícola 60% PC (grado avícola ICA, Santander)", "precio": 2900, "min": 0, "max": 0.05, "max_F1": 0.04, "max_F2": 0.05, "EM": 2850, "PC": 60.0, "EE": 11.5, "FC": 1.5, "Ca": 3.60, "Pd": 1.75, "Na": 0.35, "Cl": 0.45, "K": 0.55, "Lin": 1.80, "Lys": 2.85, "Met": 0.92, "MC": 1.44, "Thr": 1.85, "Trp": 0.46, "Val": 2.40, "Ile": 1.90, "Arg": 3.45, "Col": 5200 },
+    { "id": "hch", "nombre": "Harina de carne y hueso porcina 45% PC (libre de rumiante ICA)", "precio": 2600, "min": 0, "max": 0.04, "max_F1": 0.03, "max_F2": 0.04, "EM": 2150, "PC": 45.0, "EE": 9.5, "FC": 2.0, "Ca": 10.50, "Pd": 4.80, "Na": 0.65, "Cl": 0.70, "K": 0.50, "Lin": 0.35, "Lys": 1.82, "Met": 0.50, "MC": 0.82, "Thr": 1.22, "Trp": 0.23, "Val": 1.62, "Ile": 1.12, "Arg": 2.60, "Col": 1750 }
+  ]
+}

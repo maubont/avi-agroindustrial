@@ -1,0 +1,16 @@
+{
+  "id_propuesta": "E13_mezcla_lipidica_palma_soya_acida",
+  "agente_id": "E13",
+  "titulo": "Mezcla lipídica regional: 60% borras limpias filtradas/CPO alta acidez + 40% aceite ácido de soya",
+  "supuesto_clave_a_validar": "Disponibilidad estable en extractoras locales y refinerías de Santander de mezcla 60:40 filtrada (AGL <=30%, H+I <=1,5%, peróxidos <=5 meq/kg) con EM >=7.350 kcal/kg en pollos d21-42.",
+  "nuevos_ingredientes": [
+    {
+      "id": "aceite_mezcla_ps",
+      "nombre": "Mezcla lipídica 60% palma filtrada/alta acidez + 40% aceite ácido soya",
+      "precio": 3200, "min": 0, "max": 0.035, "max_F1": 0.025, "max_F2": 0.035, "max_permitido_F1": 0.025, "max_permitido_F2": 0.035,
+      "EM": 7350, "EE": 96.5, "Lin": 23.5
+    }
+  ],
+  "cambios_fijos_kg_t": { "antiox": 0.25 },
+  "capex_adicional_cop": 8000000
+}

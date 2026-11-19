@@ -1,0 +1,8 @@
+{
+  "id_propuesta": "E12_rodillos_tamizado_acondicionamiento",
+  "agente_id": "E12",
+  "titulo": "Molino de rodillos + tamizado estricto (1.400-1.800 um, finos <15%) + acondicionamiento agua/aceite caliente",
+  "supuesto_clave_a_validar": "Validar en piloto d21-42 que GMD 1.400-1.800 um (<15% finos <1 mm) con rodillos + aspersión agua tibia/aceite 45-55 C reduce penalizacion_conversion_harina_pct de 6.5% a 2.5% y consumo eléctrico total de molienda+mezcla de $40 a $28/kg.",
+  "capex_adicional_cop": 45000000,
+  "cambios_negocio": { "energia_molienda_mezcla": 28, "merma_pct_materias_primas": 0.6, "penalizacion_conversion_harina_pct": 2.5, "costos_fijos_extra_mes": 300000 }
+}

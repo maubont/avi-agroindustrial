@@ -1,0 +1,35 @@
+{
+  "rfcCode": "RFC-0002",
+  "titulo": "Soportar ventas parciales por piezas y por aves en AV-2 con imputación de costos",
+  "descripcion": "Agregar en AV-2 (operación) y AV-1 (modelo financiero) soporte para ventas parciales de producto: por aves, por canal, y por piezas (ej. pechuga). Incluir registro de cantidad, unidad (aves, kg, piezas), precio unitario en COP, cliente, fecha, y lote asociado. Calcular costos asociados: sacrificio por ave en COP, costo de procesamiento/desposte, y prorrateo de costos del lote (alimento, arriendo, mano de obra) para obtener utilidad por transacción. Integrar con el simulador para comparar venta en pie vs en canal vs piezas. Mantener trazabilidad y conciliación con Excel exportable. No asumir rendimientos de piezas; deben parametrizarse o provenir de desposte de referencia.",
+  "categoria": "Operación + Finanzas",
+  "sourceChannel": "web_realtime",
+  "proposedByRole": "BE-1",
+  "draftedByModel": "gpt-6.1-sol",
+  "impactoEstimado": "Alta: mejora la toma de decisiones comerciales y la conciliación contable",
+  "archivosAfectados": [
+    "avicola_app/shared/causal-twin-engine.js",
+    "avicola_app/server/openai-gateway.js",
+    "avicola_app/server/excel-transubstantiator.js",
+    "avicola_app/public/index.html",
+    "avicola_app/public/app.js",
+    "avicola_app/public/styles.css"
+  ],
+  "propuestaJson": {
+    "objetivo": "Soportar ventas parciales por piezas y por aves en AV-2 con imputación de costos",
+    "detalle": "Agregar en AV-2 (operación) y AV-1 (modelo financiero) soporte para ventas parciales de producto: por aves, por canal, y por piezas (ej. pechuga). Incluir registro de cantidad, unidad (aves, kg, piezas), precio unitario en COP, cliente, fecha, y lote asociado. Calcular costos asociados: sacrificio por ave en COP, costo de procesamiento/desposte, y prorrateo de costos del lote (alimento, arriendo, mano de obra) para obtener utilidad por transacción. Integrar con el simulador para comparar venta en pie vs en canal vs piezas. Mantener trazabilidad y conciliación con Excel exportable. No asumir rendimientos de piezas; deben parametrizarse o provenir de desposte de referencia.",
+    "criteriosAceptacion": [
+      "Cero errores de fórmula en Excel COM (FormulaErrors = 0)",
+      "Conciliación $0 entre causal-twin-engine.js y libros Excel AV-1 / AV-2"
+    ],
+    "extra": {}
+  },
+  "antigravityPrompt": "Ejecuta RFC-0002 (Soportar ventas parciales por piezas y por aves en AV-2 con imputación de costos): Agregar en AV-2 (operación) y AV-1 (modelo financiero) soporte para ventas parciales de producto: por aves, por canal, y por piezas (ej. pechuga). Incluir registro de cantidad, unidad (aves, kg, piezas), precio unitario en COP, cliente, fecha, y lote asociado. Calcular costos asociados: sacrificio por ave en COP, costo de procesamiento/desposte, y prorrateo de costos del lote (alimento, arriendo, mano de obra) para obtener utilidad por transacción. Integrar con el simulador para comparar venta en pie vs en canal vs piezas. Mantener trazabilidad y conciliación con Excel exportable. No asumir rendimientos de piezas; deben parametrizarse o provenir de desposte de referencia. Archivos reales: avicola_app/shared/causal-twin-engine.js, avicola_app/server/openai-gateway.js, avicola_app/server/excel-transubstantiator.js, avicola_app/public/index.html, avicola_app/public/app.js, avicola_app/public/styles.css",
+  "estado": "ejecutado",
+  "approvedBy": "Mauricio Bonilla (Auditoría Sesión Voz)",
+  "approvedChannel": "telegram",
+  "approvedAt": "2026-11-14T20:57:25.978Z",
+  "executedAt": "2026-11-14T20:57:25.994Z",
+  "executionNotes": "Implementado en vivo junto con Hallazgos #4-#10 y verificado en verify-phase1/2/4.",
+  "createdAt": "2026-11-14T20:25:22.837Z"
+}

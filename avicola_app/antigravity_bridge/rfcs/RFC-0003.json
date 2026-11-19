@@ -1,0 +1,35 @@
+{
+  "rfcCode": "RFC-0003",
+  "titulo": "Minuta o acta exportable desde AV-2 con historial de acciones",
+  "descripcion": "Agregar una función en AV-2 para generar y descargar una minuta o acta de reunión o sesión. Debe compilar: resumen de conversación operativa, eventos registrados (bitácora, pesajes, compras), referencias a RFC creadas, y estado de exportaciones. Incluir botón visible en la sección de Exportaciones/Descargas para descargar en PDF o Excel. Debe mantener un historial por lote y por fecha. Considerar accesibilidad para usuarios no familiarizados con la plataforma, con guía paso a paso y resaltado visual del botón de descarga.",
+  "categoria": "UX/Exportación",
+  "sourceChannel": "web_realtime",
+  "proposedByRole": "BE-1",
+  "draftedByModel": "gpt-6.1-sol",
+  "impactoEstimado": "Alta: reduce fricción y mejora auditoría y trazabilidad",
+  "archivosAfectados": [
+    "avicola_app/server/index.js",
+    "avicola_app/server/openai-gateway.js",
+    "avicola_app/server/excel-transubstantiator.js",
+    "avicola_app/public/index.html",
+    "avicola_app/public/app.js",
+    "avicola_app/public/styles.css"
+  ],
+  "propuestaJson": {
+    "objetivo": "Minuta o acta exportable desde AV-2 con historial de acciones",
+    "detalle": "Agregar una función en AV-2 para generar y descargar una minuta o acta de reunión o sesión. Debe compilar: resumen de conversación operativa, eventos registrados (bitácora, pesajes, compras), referencias a RFC creadas, y estado de exportaciones. Incluir botón visible en la sección de Exportaciones/Descargas para descargar en PDF o Excel. Debe mantener un historial por lote y por fecha. Considerar accesibilidad para usuarios no familiarizados con la plataforma, con guía paso a paso y resaltado visual del botón de descarga.",
+    "criteriosAceptacion": [
+      "Cero errores de fórmula en Excel COM (FormulaErrors = 0)",
+      "Conciliación $0 entre causal-twin-engine.js y libros Excel AV-1 / AV-2"
+    ],
+    "extra": {}
+  },
+  "antigravityPrompt": "Ejecuta RFC-0003 (Minuta o acta exportable desde AV-2 con historial de acciones): Agregar una función en AV-2 para generar y descargar una minuta o acta de reunión o sesión. Debe compilar: resumen de conversación operativa, eventos registrados (bitácora, pesajes, compras), referencias a RFC creadas, y estado de exportaciones. Incluir botón visible en la sección de Exportaciones/Descargas para descargar en PDF o Excel. Debe mantener un historial por lote y por fecha. Considerar accesibilidad para usuarios no familiarizados con la plataforma, con guía paso a paso y resaltado visual del botón de descarga. Archivos reales: avicola_app/server/index.js, avicola_app/server/openai-gateway.js, avicola_app/server/excel-transubstantiator.js, avicola_app/public/index.html, avicola_app/public/app.js, avicola_app/public/styles.css",
+  "estado": "ejecutado",
+  "approvedBy": "Mauricio Bonilla (Auditoría Sesión Voz)",
+  "approvedChannel": "telegram",
+  "approvedAt": "2026-11-14T20:57:26.018Z",
+  "executedAt": "2026-11-14T20:57:26.041Z",
+  "executionNotes": "Implementado en vivo junto con Hallazgos #4-#10 y verificado en verify-phase1/2/4.",
+  "createdAt": "2026-11-14T20:28:51.332Z"
+}

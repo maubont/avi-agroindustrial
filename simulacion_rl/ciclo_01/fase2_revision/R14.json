@@ -1,0 +1,14 @@
+{
+  "id_propuesta": "R14_soya_extruida_precio_real",
+  "agente_id": "R14",
+  "titulo": "Soya Integral Extruida recalibrada a precio real Cúcuta ($2.600/kg) y QA estricto",
+  "supuesto_clave_a_validar": "Precio puesto en Cúcuta $2.600/kg (rango $2.550-$2.750/kg); ureasa 0,02-0,08 dPH, KOH 78-85%, IT <4 mg/g, PV <5 meq/kg.",
+  "nuevos_ingredientes": [
+    {
+      "id": "soya_ext", "nombre": "Soya integral extruida (Full-Fat Soy 37% PC, 18% EE)",
+      "precio": 2600, "min": 0, "max": 0.25, "max_F1": 0.2, "max_F2": 0.25,
+      "EM": 3520, "PC": 37.0, "EE": 18.0, "FC": 5.0, "Ca": 0.25, "Pd": 0.17, "Na": 0.02, "Cl": 0.04, "K": 1.7, "Lin": 9.2,
+      "Lys": 2.02, "Met": 0.48, "MC": 0.95, "Trp": 0.46, "Thr": 1.25, "Val": 1.59, "Ile": 1.53, "Arg": 2.55, "Col": 2170
+    }
+  ]
+}

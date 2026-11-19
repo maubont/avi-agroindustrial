@@ -1,0 +1,101 @@
+{
+  "id": "L06_proteinas_alternativas_ica",
+  "id_propuesta": "L06_proteinas_alternativas_ica",
+  "agente_id": "L06",
+  "titulo": "Proteínas Alternativas Regionales e Inocuidad ICA: Harina de Vísceras Avícola Santander (4%/5%) + Arbitraje Soya Extruida QA (15%/20%), veto EEB/HCH y fluidez en harina",
+  "resumen": "Reemplazo parcial de torta de soya y MCP con Harina de Vísceras Avícola certificada ICA (58,5% PC, $3.050/kg puesto Cúcuta incl. antioxidante/acidificante en harina animal) acotada a 4% F1 / 5% F2, combinada con Soya Integral Extruida QA ($2.600/kg, EM 3.350 kcal/kg, 15% F1 / 20% F2). Veto total a MBM bovino y HCH porcina (protege línea multipropósito FPKC bovino bajo Res. ICA 991/2001 y evita bloqueo Ca:Pd en F2). Cero aceite líquido en F2.",
+  "supuesto_clave_a_validar": "CoA por lote de renderer ICA Santander (Harinagro/Avidesa/Campollo): Salmonella ausente en 25g, peróxidos <5 meq/kg en despacho (<10 recepción), acidez <7%, pepsina >=75%, BHT 200 ppm + acidificante aplicado en harina animal ($50/kg incluidos en $3.050/kg); Soya Extruida ureasa 0,02-0,08 dPH y KOH 78-85%; estiba plástica segregada (prohibido silo metálico >32C); OPEX lab extra $600k/mes y CAPEX BPMAA $8M.",
+  "nuevos_ingredientes": [
+    {
+      "id": "h_visceras",
+      "nombre": "Harina de vísceras avícola 58,5% PC (Santander ICA + estabilizante)",
+      "precio": 3050,
+      "min": 0,
+      "max": 0.05,
+      "max_F1": 0.04,
+      "max_F2": 0.05,
+      "EM": 2850,
+      "PC": 58.5,
+      "EE": 12.0,
+      "FC": 1.6,
+      "Ca": 4.20,
+      "Pd": 1.95,
+      "Na": 0.37,
+      "Cl": 0.46,
+      "K": 0.52,
+      "Lin": 1.80,
+      "Lys": 2.78,
+      "Met": 0.88,
+      "MC": 1.42,
+      "Thr": 1.82,
+      "Trp": 0.43,
+      "Val": 2.30,
+      "Ile": 1.82,
+      "Arg": 3.40,
+      "Col": 4400
+    },
+    {
+      "id": "soya_ext",
+      "nombre": "Soya integral extruida Full-Fat QA (37% PC, 18% EE, EM 3.350)",
+      "precio": 2600,
+      "min": 0,
+      "max": 0.20,
+      "max_F1": 0.15,
+      "max_F2": 0.20,
+      "EM": 3350,
+      "PC": 37.0,
+      "EE": 18.0,
+      "FC": 5.0,
+      "Ca": 0.25,
+      "Pd": 0.17,
+      "Na": 0.02,
+      "Cl": 0.04,
+      "K": 1.70,
+      "Lin": 9.20,
+      "Lys": 2.02,
+      "Met": 0.48,
+      "MC": 0.95,
+      "Thr": 1.25,
+      "Trp": 0.46,
+      "Val": 1.59,
+      "Ile": 1.53,
+      "Arg": 2.55,
+      "Col": 2170
+    }
+  ],
+  "cambios_ingredientes": [
+    {
+      "id": "aceite",
+      "max": 0.04,
+      "max_F1": 0.035,
+      "max_F2": 0.04
+    }
+  ],
+  "cambios_escenario": {
+    "permitir": ["h_visceras", "soya_ext"],
+    "excluidos": ["mbm_bovino", "hch_porcina", "h_plumas"]
+  },
+  "cambios_negocio": {
+    "costos_fijos_extra_mes": 600000,
+    "merma_pct_materias_primas": 1.05
+  },
+  "capex_adicional_cop": 8000000,
+  "notas_auditoria": {
+    "normativa_ica": "Cumple Res. ICA 061252/2020 (BPMAA/SimplifICA), Res. ICA 991/2001 (veto EEB mamíferos en línea multipropósito con FPKC bovino) y Res. ICA 2028/2002 (HV avícola de renderer registrado). No existe Res. 079169 de EEB.",
+    "control_microbiologico_y_quimico": "Planta fría en harina sin peletizadora: prohibido dosificar bactericida de $15/kg en todo el alimento (vuelve Reward negativo a -4,6 / -11,8); estabilizar con BHT 200 ppm + acidificante orgánico en origen sobre la harina animal (+$50/kg incluidos en $3.050/kg) y CoA Salmonella ausente/25g + Clostridium + peróxidos <5 meq/kg ($600k/mes lab extra).",
+    "ingenieria_almacenamiento": "Prohibido silo metálico en Cúcuta (>32C, bridging por 12-18% grasa). Usar bultos/big-bags sobre estibas plásticas lavables a 50 cm de pared en bodega segregada; rotación FIFO <=20 días. CAPEX $8M cubre adecuación BPMAA inicial (estación industrial completa con colector de polvo y sinfín sanitario asciende a $19,5M).",
+    "nutricion_y_monte_carlo": "HV acotada a 4%/5% conserva MCP activo (5,38/1,82 kg/t) evitando doble conteo con fitasa 500 FTU y mantiene Ca:Pd (1,79/1,81) y DEB (226,5/220,0). Soya extruida reduce aceite libre a 9,7 kg/t (F1) y 0,0 kg/t (F2), siendo indispensable porque sin ella el LP es infactible bajo tope de aceite 3,5% en F1. MC F1/F2 sube a 40,0%/39,8% (vs 35,4%/35,6% base) aun con CV=12% en h_visceras.",
+    "validacion_simulador_rl": {
+      "factible": true,
+      "reward": 32.3,
+      "mp_ponderado_cop_kg": 1907.8,
+      "ahorro_mp_cop_kg": 13.2,
+      "costo_fab_cop_kg": 2012.9,
+      "costo_kg_vivo_cop": 4202,
+      "ahorro_vivo_cop_kg": 26,
+      "punto_equilibrio_t_mes": 76.1,
+      "mc_cumpl_f1_pct": 40.0,
+      "mc_cumpl_f2_pct": 39.8
+    }
+  }
+}

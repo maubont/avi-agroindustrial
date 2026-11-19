@@ -1,0 +1,13 @@
+{
+  "id_propuesta": "R03_proteasa_ajustada",
+  "agente_id": "R03",
+  "titulo": "Proteasa comercial termoestable (200 g/t) con matriz conservadora AA dig./EM sobre fitasa",
+  "supuesto_clave_a_validar": "Uplift conservador de proteasa serina (200 g/t, $55.000/kg) sobre fitasa (+1,8% AA/+18 kcal soya, +1,5% AA/+12 kcal maíz, +4,5% AA/+22 kcal FPKC) evita doble conteo y sostiene FCR Ross 2022.",
+  "nuevos_ingredientes": [{ "id": "proteasa", "nombre": "Proteasa comercial (15.000 PROT/g, 200 g/t)", "precio": 55000, "min": 0, "max": 0.00025, "max_F1": 0.00025, "max_F2": 0.00025 }],
+  "cambios_fijos_kg_t": { "proteasa": 0.2 },
+  "cambios_ingredientes": [
+    { "id": "soya", "nutrientes": { "EM": 2298, "Lys": 2.565, "Met": 0.611, "MC": 1.201, "Trp": 0.59, "Thr": 1.578, "Val": 2.016, "Ile": 1.934, "Arg": 3.237 } },
+    { "id": "maiz", "nutrientes": { "EM": 3262, "Lys": 0.214, "Met": 0.167, "MC": 0.325, "Trp": 0.051, "Thr": 0.254, "Val": 0.355, "Ile": 0.264, "Arg": 0.365 } },
+    { "id": "fpkc", "nutrientes": { "EM": 1764, "Lys": 0.439, "Met": 0.293, "MC": 0.523, "Trp": 0.146, "Thr": 0.481, "Val": 0.752, "Ile": 0.564, "Arg": 1.515 } }
+  ]
+}

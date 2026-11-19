@@ -1,0 +1,8 @@
+{
+  "id_propuesta": "R20_logistica_hibrida_real",
+  "agente_id": "R20",
+  "titulo": "Logistica hibrida real 30% Big-Bag ancla + 70% saco 40 kg y cuadrilla formal 1+2",
+  "cambios_negocio": { "empaque": 35, "energia_molienda_mezcla": 38, "merma_pct_materias_primas": 0.85, "flete_distribucion": 68, "comision_ventas_pct": 1.4, "costos_fijos_extra_mes": -1800000 },
+  "capex_adicional_cop": 4500000,
+  "supuesto_clave_a_validar": "30% del volumen en Big-Bag retornable a granja ancla con polipasto y 70% en bulto de 40 kg; cuadrilla formal 1 molinero + 2 auxiliares (~$8,2M/mes)."
+}

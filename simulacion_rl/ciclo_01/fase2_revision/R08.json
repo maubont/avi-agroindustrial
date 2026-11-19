@@ -1,0 +1,8 @@
+{
+  "id_propuesta": "R08_betaina_practica",
+  "agente_id": "R08",
+  "titulo": "Betaína anhidra recubierta 90% en núcleo (0% Cl, tope <=50% reemplazo colina)",
+  "nuevos_ingredientes": [{ "id": "betaina_rec", "nombre": "Betaína anhidra recubierta 90% (0% Cl)", "precio": 14500, "min": 0.0003, "max": 0.0005, "max_F1": 0.0005, "max_F2": 0.0005, "EM": 0, "PC": 67.3, "Cl": 0, "Met": 25.0, "MC": 25.0, "Col": 800000 }],
+  "cambios_ingredientes": [{ "id": "colina", "min": 0.00045 }],
+  "supuesto_clave_a_validar": "Precio recubierta/en núcleo 14.500 COP/kg; reemplazo máx ~45-50% de Colina Cl (min 0,45 kg/t); ahorro Met conservador 0,25 kg/kg; dosis 300-500 g/t en Cúcuta."
+}

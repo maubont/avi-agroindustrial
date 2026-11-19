@@ -1,0 +1,21 @@
+{
+  "id_propuesta": "E16_fpkc_tricanter_arroz_tamizado_chimenea",
+  "agente_id": "E16",
+  "titulo": "FPKC optimizado en extractora: Tricanter rico en aceite + pulidura arroz + tamizado fino + calor chimenea",
+  "supuesto_clave_a_validar": "Costo real manufactura 490 COP/kg (Tricanter $0, secado calor chimenea $0 combustible, tamizado <0,85 mm, 15% pulidura arroz) con EM 2.347 kcal/kg, EE 13,3% y FC 5,8%",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc",
+      "precio": 490,
+      "permitir": true,
+      "max_F1": 0.08,
+      "max_F2": 0.14,
+      "max_permitido_F1": 0.08,
+      "max_permitido_F2": 0.14,
+      "nutrientes": {
+        "EM": 2347, "PC": 21.5, "EE": 13.3, "FC": 5.8, "Ca": 0.30, "Pd": 0.38, "Na": 0.03, "Cl": 0.06, "K": 0.78, "Lin": 1.15,
+        "Lys": 0.55, "Met": 0.33, "MC": 0.60, "Trp": 0.17, "Thr": 0.54, "Val": 0.82, "Ile": 0.63, "Arg": 1.56, "Col": 1320
+      }
+    }
+  ]
+}

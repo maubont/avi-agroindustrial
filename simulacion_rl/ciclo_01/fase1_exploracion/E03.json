@@ -1,0 +1,13 @@
+{
+  "id_propuesta": "E03_proteasa_serina_200gt",
+  "agente_id": "E03",
+  "titulo": "Proteasa comercial termoestable (200 g/t) + matriz AA dig./EM en soya, maíz y FPKC",
+  "supuesto_clave_a_validar": "Uplift real de digestibilidad ileal de AA (+4,0% soya, +3,0% maíz, +10,0% FPKC) y EM (+45/+30/+70 kcal/kg) bajo proteasa serina 15.000 PROT/kg (200 g/t a $55.000/kg) mantiene conversión y ganancia Ross 2022 en piloto de campo.",
+  "nuevos_ingredientes": [{ "id": "proteasa", "nombre": "Proteasa comercial (15.000 PROT/g, 200 g/t)", "precio": 55000, "min": 0, "max": 0.00025, "max_F1": 0.00025, "max_F2": 0.00025 }],
+  "cambios_fijos_kg_t": { "proteasa": 0.2 },
+  "cambios_ingredientes": [
+    { "id": "soya", "nutrientes": { "EM": 2325, "Lys": 2.621, "Met": 0.624, "MC": 1.227, "Trp": 0.603, "Thr": 1.612, "Val": 2.059, "Ile": 1.976, "Arg": 3.307 } },
+    { "id": "maiz", "nutrientes": { "EM": 3280, "Lys": 0.217, "Met": 0.17, "MC": 0.33, "Trp": 0.052, "Thr": 0.258, "Val": 0.361, "Ile": 0.268, "Arg": 0.371 } },
+    { "id": "fpkc", "nutrientes": { "EM": 1812, "Lys": 0.462, "Met": 0.308, "MC": 0.55, "Trp": 0.154, "Thr": 0.506, "Val": 0.792, "Ile": 0.594, "Arg": 1.595 } }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "L08_molienda_gruesa_fcr",
+  "id_propuesta": "L08_molienda_gruesa_fcr",
+  "agente_id": "L08",
+  "titulo": "L08 Molienda Gruesa Estructurada (Martillos VFD + Zaranda Recirculadora) vs FCR en Galpon",
+  "resumen": "Implementacion de variador de frecuencia VFD (36-42 Hz / 60-70% RPM) + juego de cribas gruesas (4.5-6.0 mm) + zaranda vibratoria clasificadora (malla 2.0 mm) sobre el molino de martillos en Fase 1, logrando DMW dieta 800-950 um (F1) y 950-1150 um (F2) con aceite crudo de palma caliente (48-54 C) como aglutinante en mezcladora horizontal para evitar segregacion en tolva. Reduce penalizacion de conversion en harina de 6.5% a 3.8% (-2.7 pp; mejora relativa FCR 2.54%), energia molienda/mezcla de 40 a 34 COP/kg y merma de 1.0% a 0.8%, con CAPEX base de $18.000.000 COP pre-IVA ($21.420.000 con IVA 19%).",
+  "supuesto_clave_a_validar": "VFD + cribas 4.5-6.0 mm + zaranda 2.0 mm (CAPEX $18M pre-IVA = $21.42M con IVA) reduce penalizacion de conversion en harina de 6.5% a 3.8% (-$127/kg vivo), energia de 40 a 34 COP/kg y merma de 1.0% a 0.8%, sin alterar consumo F1/F2 para evitar doble conteo; requiere mezcladora horizontal y aceite caliente >=1.5%.",
+  "cambios_ingredientes": [],
+  "cambios_escenario": {},
+  "cambios_negocio": {
+    "penalizacion_conversion_harina_pct": 3.8,
+    "energia_molienda_mezcla": 34,
+    "merma_pct_materias_primas": 0.8
+  },
+  "capex_adicional_cop": 18000000,
+  "notas_auditoria": [
+    "Sin doble conteo FCR: motor_lp.js aplica penalizacion_conversion_harina_pct sobre (consumo_F1 * CostoFab1 + consumo_F2 * CostoFab2); no se alteran consumo_F1_kg_ave (0.95) ni consumo_F2_kg_ave (2.50).",
+    "CAPEX pre-IVA: simulador_rl.js suma capex_adicional_cop a equipos_fase1 antes de aplicar iva_equipos_pct (19%) y depreciar a 120 meses; $18M pre-IVA equivale a $21.42M COP en caja inicial.",
+    "Protocolo anti-segregacion obligatorio en harina: moler solo maiz (soya 46% directa), mezcladora horizontal de doble cinta (2 min mezcla seca + aspersion aceite palma 48-54 C + 90 s mezcla humeda), caliza bimodal 50/50 y vaciado diario de platos en galpon.",
+    "Sensibilidad verificada en simulador_rl.js: aun con mejora conservadora extrema (penalizacion 4.5%) ahorra $100 COP/kg vivo (reward 35.8, PE 75.0 t/mes); el molino de rodillos ($75M pre-IVA / $89.25M con IVA) se difiere a Fase 2 (>150 t/mes) por liquidez y ausencia de talleres de re-estriado en Cucuta."
+  ]
+}

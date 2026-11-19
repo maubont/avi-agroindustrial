@@ -1,0 +1,21 @@
+{
+  "id_propuesta": "RL1_E11_tractomula_nucleo",
+  "agente_id": "E11",
+  "titulo": "Tractomula compartida Puerto Caribe/cosecha + núcleo premezcla Ross-Fitasa-Valina",
+  "cambios_ingredientes": [
+    { "id": "maiz", "precio": 1230 },
+    { "id": "soya", "precio": 2020 },
+    { "id": "premix", "min": 0, "max": 0 },
+    { "id": "val", "max": 0, "max_permitido_F1": 0, "max_permitido_F2": 0 }
+  ],
+  "cambios_fijos_kg_t": { "fitasa": 0 },
+  "nuevos_ingredientes": [
+    {
+      "id": "nucleo_premix", "nombre": "Núcleo premezcla Ross + Fitasa 500 FTU + L-Valina (4 kg/t)",
+      "precio": 17500, "min": 0.004, "max": 0.004, "max_F1": 0.004, "max_F2": 0.004,
+      "EM": 262.5, "PC": 5.4, "Ca": 25.0, "Pd": 30.0, "Val": 7.24
+    }
+  ],
+  "capex_adicional_cop": 4000000,
+  "supuesto_clave_a_validar": "Convenio granja ancla/asociación para tractomula compartida 34 t Barranquilla-Cúcuta y cotización núcleo 4 kg/t"
+}

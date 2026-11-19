@@ -1,0 +1,13 @@
+{
+  "id_propuesta": "RL_C01_E10_alternativas_energeticas_reg",
+  "agente_id": "E10",
+  "titulo": "Portafolio energético regional Norte de Santander y Cesar (arroz partido, pulidura, sorgo, yuca, glicerina)",
+  "supuesto_clave_a_validar": "Precios puestos en Cúcuta desde El Zulia/Cesar; humedad <=13%, peróxidos <10 mEq/kg en pulidura, HCN <10 ppm en yuca y metanol <0,05% en glicerina",
+  "nuevos_ingredientes": [
+    { "id": "arroz_partido", "nombre": "Arroz cristal/partido de molino (El Zulia, N. de Santander)", "precio": 1120, "min": 0, "max": 0.30, "max_F1": 0.25, "max_F2": 0.30, "EM": 3300, "PC": 7.8, "EE": 0.7, "FC": 0.5, "Ca": 0.03, "Pd": 0.06, "Na": 0.02, "Cl": 0.04, "K": 0.10, "Lin": 0.25, "Lys": 0.23, "Met": 0.16, "MC": 0.31, "Trp": 0.08, "Thr": 0.23, "Val": 0.37, "Ile": 0.28, "Arg": 0.52, "Col": 450 },
+    { "id": "pulidura_arroz", "nombre": "Pulidura de arroz fresca estabilizada (El Zulia)", "precio": 900, "min": 0, "max": 0.10, "max_F1": 0.06, "max_F2": 0.10, "EM": 2950, "PC": 12.8, "EE": 13.5, "FC": 6.0, "Ca": 0.06, "Pd": 0.20, "Na": 0.03, "Cl": 0.05, "K": 1.25, "Lin": 4.20, "Lys": 0.48, "Met": 0.21, "MC": 0.38, "Trp": 0.12, "Thr": 0.38, "Val": 0.56, "Ile": 0.37, "Arg": 0.85, "Col": 1100 },
+    { "id": "sorgo_bajo_tanino", "nombre": "Sorgo granífero bajo tanino (Cesar / Catatumbo)", "precio": 1180, "min": 0, "max": 0.30, "max_F1": 0.20, "max_F2": 0.30, "EM": 3180, "PC": 9.2, "EE": 2.8, "FC": 2.4, "Ca": 0.03, "Pd": 0.08, "Na": 0.02, "Cl": 0.05, "K": 0.35, "Lin": 1.15, "Lys": 0.18, "Met": 0.14, "MC": 0.28, "Trp": 0.08, "Thr": 0.25, "Val": 0.39, "Ile": 0.32, "Arg": 0.32, "Col": 600 },
+    { "id": "harina_yuca", "nombre": "Harina de yuca seca integral <=12% hum. (Catatumbo / Zulia)", "precio": 980, "min": 0, "max": 0.12, "max_F1": 0.08, "max_F2": 0.12, "EM": 3050, "PC": 2.5, "EE": 0.6, "FC": 3.2, "Ca": 0.12, "Pd": 0.04, "Na": 0.02, "Cl": 0.04, "K": 0.65, "Lin": 0.15, "Lys": 0.07, "Met": 0.02, "MC": 0.04, "Trp": 0.02, "Thr": 0.05, "Val": 0.07, "Ile": 0.06, "Arg": 0.10, "Col": 180 },
+    { "id": "glicerina_feed", "nombre": "Glicerina cruda grado feed 80% glicerol (biodiésel Cesar, <0,05% metanol)", "precio": 1300, "min": 0, "max": 0.05, "max_F1": 0.04, "max_F2": 0.05, "EM": 3450, "PC": 0.0, "EE": 0.5, "FC": 0.0, "Ca": 0.02, "Pd": 0.0, "Na": 1.20, "Cl": 1.85, "K": 0.10, "Lin": 0.0, "Lys": 0.0, "Met": 0.0, "MC": 0.0, "Trp": 0.0, "Thr": 0.0, "Val": 0.0, "Ile": 0.0, "Arg": 0.0, "Col": 0 }
+  ]
+}

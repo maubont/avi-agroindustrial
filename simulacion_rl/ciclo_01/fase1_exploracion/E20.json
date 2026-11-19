@@ -1,0 +1,8 @@
+{
+  "id_propuesta": "E20_LOGISTICA_PE_SUB55",
+  "agente_id": "E20",
+  "titulo": "Big-Bag retornable, ruta Zulia-Cucuta y turno modular compartido",
+  "cambios_negocio": { "empaque": 12, "energia_molienda_mezcla": 26, "merma_pct_materias_primas": 0.6, "flete_distribucion": 40, "comision_ventas_pct": 1.0, "costos_fijos_extra_mes": -3200000 },
+  "capex_adicional_cop": 6000000,
+  "supuesto_clave_a_validar": "Adopcion >=60% en Big-Bag/granel en granjas del eje Astilleros-Zulia-Cucuta y esquema de 2 operarios compartidos en arranque (<80 t/mes)."
+}

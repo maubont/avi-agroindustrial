@@ -1,0 +1,22 @@
+{
+  "id_propuesta": "R11_tractomula_nucleo_realista",
+  "agente_id": "R11",
+  "titulo": "Tractomula compartida 34t (bodega seca/estibas) + núcleo vit/min-Fitasa-Valina realista",
+  "cambios_ingredientes": [
+    { "id": "maiz", "precio": 1270 },
+    { "id": "soya", "precio": 2060 },
+    { "id": "premix", "min": 0, "max": 0 },
+    { "id": "val", "max": 0, "max_permitido_F1": 0, "max_permitido_F2": 0 }
+  ],
+  "cambios_fijos_kg_t": { "fitasa": 0 },
+  "nuevos_ingredientes": [
+    {
+      "id": "nucleo_premix", "nombre": "Núcleo vit/min Ross + Fitasa 500 FTU + L-Valina (4 kg/t; colina Cl aparte)",
+      "precio": 20500, "min": 0.004, "max": 0.004, "max_F1": 0.004, "max_F2": 0.004,
+      "EM": 262.5, "PC": 5.4, "Ca": 25.0, "Pd": 30.0, "Val": 7.24
+    }
+  ],
+  "cambios_negocio": { "merma_pct_materias_primas": 1.2, "costos_fijos_extra_mes": 300000 },
+  "capex_adicional_cop": 10000000,
+  "supuesto_clave_a_validar": "Convenio granja ancla para tractomula compartida 34 t, bodega seca/estibas Cúcuta ($10M CAPEX) y cotización núcleo completo a $20.500/kg"
+}

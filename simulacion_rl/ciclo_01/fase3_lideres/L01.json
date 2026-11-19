@@ -1,0 +1,27 @@
+{
+  "id_propuesta": "L01_compras_logistica_fases",
+  "agente_id": "L01",
+  "titulo": "Compras directas + núcleo encapsulado + logística híbrida biosegura 30/70 + 2 SKUs (F1 d21-25 / F2 d26-42)",
+  "cambios_ingredientes": [
+    { "id": "maiz", "precio": 1270 },
+    { "id": "soya", "precio": 2060 },
+    { "id": "premix", "min": 0, "max": 0 },
+    { "id": "val", "max": 0.001, "max_permitido_F1": 0.001, "max_permitido_F2": 0.001 }
+  ],
+  "cambios_fijos_kg_t": { "fitasa": 0 },
+  "nuevos_ingredientes": [
+    {
+      "id": "nucleo_premix",
+      "nombre": "Núcleo vit/min Ross + Fitasa microencapsulada 500 FTU + L-Valina (4 kg/t pre-diluido 1:4; colina Cl aparte)",
+      "precio": 20500, "min": 0.004, "max": 0.004, "max_F1": 0.004, "max_F2": 0.004,
+      "EM": 262.5, "PC": 5.4, "Ca": 25.0, "Pd": 30.0, "Val": 7.24
+    }
+  ],
+  "cambios_negocio": {
+    "empaque": 40, "energia_molienda_mezcla": 38, "merma_pct_materias_primas": 1.05,
+    "flete_distribucion": 75, "comision_ventas_pct": 1.4, "costos_fijos_extra_mes": -1500000,
+    "consumo_F1_kg_ave": 0.58, "consumo_F2_kg_ave": 2.87
+  },
+  "capex_adicional_cop": 16500000,
+  "supuesto_clave_a_validar": "Compra directa en puerto (maíz 34t / soya lotes compartidos regionales, sin maquila con granja ancla), núcleo con fitasa microencapsulada + CoA ICA y pre-dilución 1:4, Big-Bag 30% solo en F2 con liner desechable ($40/kg), merma física 1.05%, CAPEX $16.5M (incluye estructura IPE de polipasto), cuadrilla 1+2 + fondo descargue (-$1.5M/mes neto) y 2 SKUs exactos Ross 2022."
+}

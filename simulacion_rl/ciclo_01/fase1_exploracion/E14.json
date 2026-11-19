@@ -1,0 +1,14 @@
+{
+  "id_propuesta": "E14_soya_integral_extruida",
+  "agente_id": "E14",
+  "titulo": "Soya Integral Extruida (37% PC, 18% EE, EM 3.520) vs. Torta 46% + Aceite Palma",
+  "supuesto_clave_a_validar": "Precio puesto en Cúcuta <= $2.350/kg (umbral entrada $2.740/kg), actividad ureásica < 0,05 ΔpH, solubilidad KOH 78-85% y disponibilidad estable de soya extruida.",
+  "nuevos_ingredientes": [
+    {
+      "id": "soya_ext", "nombre": "Soya integral extruida (Full-Fat Soy 37% PC, 18% EE)",
+      "precio": 2350, "min": 0, "max": 0.25, "max_F1": 0.2, "max_F2": 0.25,
+      "EM": 3520, "PC": 37.0, "EE": 18.0, "FC": 5.0, "Ca": 0.25, "Pd": 0.17, "Na": 0.02, "Cl": 0.04, "K": 1.7, "Lin": 9.2,
+      "Lys": 2.02, "Met": 0.48, "MC": 0.95, "Trp": 0.46, "Thr": 1.25, "Val": 1.59, "Ile": 1.53, "Arg": 2.55, "Col": 2170
+    }
+  ]
+}

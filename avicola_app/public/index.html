@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b10" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Avi · Granja La Alejandra (El Zulia)</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/avi-icon-192.png" />
+  <link rel="icon" type="image/svg+xml" href="/icons/avi-icon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/avi-icon-192.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Drop Overlay Universal -->
+  <div id="global-drop-overlay" class="global-drop-overlay hidden">
+    <div class="global-drop-badge">
+      Suelta tu Excel (.xlsx) o factura en imagen para analizar impacto causal al instante
+    </div>
+  </div>
+
+  <!-- Barra de Comando Superior (Cockpit IA-Nativo) -->
+  <header class="cockpit-header">
+    <div class="header-inner">
+      <div class="brand-block">
+        <div class="orb-wrap" id="orb-trigger" title="Pulsa para iniciar o pausar conversación por voz Realtime (gpt-realtime-2.1)">
+          <canvas id="voice-orb-canvas" width="96" height="96"></canvas>
+        </div>
+        <div class="brand-titles">
+          <h1>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0">
+              <rect x="2" y="2" width="20" height="20" rx="6" fill="#10b981" fill-opacity="0.16" stroke="#10b981" stroke-opacity="0.45"/>
+              <path d="M12 5.5L14.2 10.1L19 12L14.2 13.9L12 18.5L9.8 13.9L5 12L9.8 10.1L12 5.5Z" fill="#10b981"/>
+            </svg>
+            <span>Avi · Granja La Alejandra</span>
+            <button type="button" class="pill-btn ok" id="sync-concil-pill" title="Auditoria automática de cuentas: haz clic para ver el detalle">✓ Cuentas Cuadradas</button>
+            <span class="pill accent" id="twin-version-pill" title="Registro de historial operativo">1 reg.</span>
+            <button type="button" class="pill ok" id="btn-agent-identity" title="Personalizar nombre del asistente Avi" style="cursor:pointer; border:none;">✦ Avi</button>
+          </h1>
+          <p class="brand-sub">
+            <span id="realtime-status-text">Voz lista · Vereda La Alejandra, El Zulia</span>
+            <span>·</span>
+            <span id="sse-status-text">En línea</span>
+            <span id="cloud-status-text" style="display:none;">Local</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btn-voice-toggle" class="btn-voice" type="button">
+          <span id="voice-btn-icon">🎙️</span>
+          <span id="voice-btn-label">Hablar</span>
+        </button>
+        <button id="btn-briefing" class="btn-primary" type="button" title="Recorrido guiado con resumen de voz y foco visual">
+          Resumen Guiado
+        </button>
+        <button id="btn-cmd-palette" type="button" title="Buscar secciones o acciones (Ctrl+K)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <span>Buscar</span>
+          <kbd style="font-size:0.66rem; opacity:0.68; font-family:var(--font-mono);">Ctrl K</kbd>
+        </button>
+        <button id="btn-undo" type="button" title="Deshacer el último registro guardado">
+          ↩ Deshacer
+        </button>
+        <button id="btn-theme" type="button" title="Cambiar entre Tema Oscuro (Obsidian) y Tema Claro (Alabastro)">
+          Tema: Oscuro
+        </button>
+        <button id="btn-council" class="owner-only-control" type="button" title="Panel de arquitectura y criterios (Administrador)">
+          ✦ Criterios
+        </button>
+        <button id="btn-user-menu" type="button" title="Perfil activo y cierre de sesión">
+          👤 David
+        </button>
+        <button id="btn-pwa-install" class="hidden" type="button" title="Instalar Granja La Alejandra como app en teléfono o escritorio">
+          📲 App
+        </button>
+        <button id="btn-credentials" class="owner-only-control" type="button" title="Configurar integraciones y claves API">
+          ⚙️
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="canvas-main">
+    <div class="workspace-ribbon" id="workspace-ribbon">
+      <div class="workspace-nav-row" style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+        <nav class="segmented-nav" aria-label="Navegación de Módulos">
+          <button class="seg-btn active" type="button" data-jump="resumen_ejecutivo">1. Ruta y Rentabilidad</button>
+          <button class="seg-btn" type="button" data-jump="simulador_whatif">2. Proyecciones Ross</button>
+          <button class="seg-btn" type="button" data-jump="operacion_av2">3. Lotes y Flujo</button>
+          <button class="seg-btn owner-only-control" type="button" data-jump="plan_av1">4. Escala Anual</button>
+          <button class="seg-btn" type="button" data-jump="bitacora_pesajes">5. Bitácora Campo</button>
+          <button class="seg-btn" type="button" data-jump="bodega_termica">6. Bodega y Logística</button>
+          <button class="seg-btn" type="button" data-jump="puente_antigravity">7. Reportes y Actas</button>
+        </nav>
+        <div class="layout-mode-pills" title="Alternar entre vista por páginas sin scroll largo o vista completa">
+          <button type="button" class="btn-xs active" id="btn-layout-paged">📑 Por Páginas</button>
+          <button type="button" class="btn-xs" id="btn-layout-scroll">📜 Ver Todo</button>
+        </div>
+      </div>
+      <div class="ambient-pulse-bar" id="ambient-pulse-bar">
+        <span class="ambient-label">Prioridades hoy:</span>
+        <!-- Poblado dinámicamente -->
+      </div>
+    </div>
+    <!-- SECCION 1: GOBIERNO EJECUTIVO Y CONTROL REAL -->
+    <section class="canvas-section" id="sec-resumen_ejecutivo" data-section="resumen_ejecutivo">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 1 · Gobierno Ejecutivo</div>
+          <h2 class="section-title">Estado Real, Caja y Decisiones</h2>
+          <p class="section-desc">
+            Control en galpón, giros pendientes, piso realista tras mermas y metas antes de cosecha · Foco: <strong>canal con menudencias ($11.500/kg)</strong>.
+            <span id="hero-canal-extra-inline" class="num" style="display:none;"></span>
+          </p>
+        </div>
+        <div id="hero-sim-status"></div>
+      </div>
+
+      <div id="avi-focus-bar" class="avi-focus-bar">
+        <div class="avi-focus-head">
+          <span>👁️ Toca cualquier tarjeta, cifra o decisión para analizar su desglose ejecutivo o consultarlo con Avi en tiempo real.</span>
+        </div>
+      </div>
+
+      <div id="exec-truth-strip" class="exec-truth-strip">
+        <!-- Poblado dinámicamente: Auditoría de verdad real hoy vs sin reporte -->
+      </div>
+
+      <div id="hero-kpi-grid">
+        <!-- Poblado dinámicamente: 4 tarjetas ejecutivas reales (Caja, Base vs Ácido, Riesgo Precio, Cuellos de Botella) -->
+      </div>
+
+      <div id="exec-decisions-strip" class="exec-decisions-strip">
+        <!-- Poblado dinámicamente: Top 3 decisiones concretas de esta semana -->
+      </div>
+
+      <div class="hero-bridge-panel">
+        <div class="hero-bridge-head">
+          <div>
+            <strong style="font-size:0.86rem;" id="hero-cash-title">Curva Real de Caja por Fechas: Desembolsos → Tope 23-Dic (Víspera Cosecha L1) → Payback</strong>
+            <div class="hero-bridge-sub">Reloj de caja desde el arriendo (30-oct). El pollo Lote 1 sale en 42 días exactos (13-nov → 24-dic). Abajo de $0 = efectivo necesario en marcha; cruce por $0 = retorno total de capital.</div>
+          </div>
+          <div class="btn-row" style="gap:6px;">
+            <button type="button" class="btn-xs active" id="btn-hero-cash-3l">Solo 3 Lotes (hasta 30-ene)</button>
+            <button type="button" class="btn-xs" id="btn-hero-cash-cont">Continuo 900 (hasta 20-mar)</button>
+          </div>
+        </div>
+        <div class="chart-box" id="hero-bridge-chart-box"></div>
+        <div class="chart-tooltip-bar" id="hero-bridge-tooltip">
+          Toca o pasa el cursor por cualquier fecha para ver egresos, cobros y saldo acumulado real.
+        </div>
+      </div>
+
+      <div class="panel-box bsc-panel" id="bsc-scorecard-panel" style="margin-top:14px;">
+        <details id="bsc-details-wrap" class="bsc-details-wrap" open>
+          <summary class="bsc-details-summary">
+            <span>Cuadro de Mando Integral (Kaplan &amp; Norton · Estándares Aviagen / FENAVI)</span>
+            <span class="pill accent" id="bsc-scorecard-pill">IEP &amp; Semaforización</span>
+          </summary>
+          <div class="bsc-grid" id="bsc-scorecard-grid" style="margin-top:12px;">
+            <!-- Poblado dinámicamente con las 4 perspectivas BSC honestas -->
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECCION 2: LABORATORIO CAUSAL WHAT-IF (<1 ms) + CURVA ROSS 308 -->
+    <section class="canvas-section" id="sec-simulador_whatif" data-section="simulador_whatif">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 2 · Simulador de Proyecciones Dinámicas &amp; Curva de Crecimiento</div>
+          <h2 class="section-title">Simulador de Proyecciones Dinámicas &amp; Curva Biológica Ross 308 AP</h2>
+          <p class="section-desc">
+            Mueve edad de cosecha (42 vs 45 días), precio en canal, mortalidad o clima y ve en vivo el impacto financiero y en planta.
+          </p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button id="btn-reset-whatif" type="button">Restablecer Oficial</button>
+          <button id="btn-commit-whatif" class="btn-emerald" type="button">Fijar Simulación como Estado Oficial</button>
+        </div>
+      </div>
+
+      <div class="scenario-cards-grid" id="whatif-scenario-cards"></div>
+
+      <div class="two-col">
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Variables Vivas del Modelo</span>
+            <label class="switch-row owner-only-control">
+              <input type="checkbox" id="toggle-alimento-propio" />
+              <span>Usar Alimento Propio en Lotes 2 y 3 (d22+)</span>
+            </label>
+          </div>
+          <div class="sliders-grid">
+            <div class="slider-item">
+              <div class="slider-top">
+                <span>Edad de Salida (días)</span>
+                <span class="slider-val" id="val-edad">42 d</span>
+              </div>
+              <input type="range" id="rng-edad" min="35" max="49" step="1" value="42" />
+              <div class="quick-preset-row">
+                <button class="btn-xs" data-age="42">42d (6 sem · 2,47 kg)</button>
+                <button class="btn-xs" data-age="45">45d (Meta · 2,72 kg)</button>
+                <button class="btn-xs" data-age="48">48d (3,59 kg vivo)</button>
+              </div>
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-top">
+                <span>Precio Venta Canal (COP/kg)</span>
+                <span class="slider-val" id="val-precio-canal">$11.500</span>
+              </div>
+              <input type="range" id="rng-precio-canal" min="9500" max="14000" step="100" value="11500" />
+            </div>
+
+            <details class="ref-internal-details" style="grid-column: 1 / -1;">
+              <summary>Referencia interna: precio pollo vivo en puerta (no es meta comercial)</summary>
+              <div class="slider-item" style="margin-top:8px;">
+                <div class="slider-top">
+                  <span>Precio Pollo Vivo Puerta (COP/kg)</span>
+                  <span class="slider-val" id="val-precio-vivo">$7.400</span>
+                </div>
+                <input type="range" id="rng-precio-vivo" min="6000" max="9500" step="100" value="7400" />
+              </div>
+            </details>
+
+            <div class="slider-item">
+              <div class="slider-top">
+                <span>Mortalidad Presupuestada (%)</span>
+                <span class="slider-val" id="val-mort">3.0%</span>
+              </div>
+              <input type="range" id="rng-mort" min="1" max="10" step="0.5" value="3.0" />
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-top">
+                <span>Factor Clima Cálido El Zulia (%)</span>
+                <span class="slider-val" id="val-clima">0.0%</span>
+              </div>
+              <input type="range" id="rng-clima" min="-10" max="3" step="0.5" value="0" />
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-top">
+                <span>Área Efectiva Galpón (m²)</span>
+                <span class="slider-val" id="val-area">280 m²</span>
+              </div>
+              <input type="range" id="rng-area" min="200" max="420" step="10" value="280" />
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Proyecciones Dinámicas &amp; Curva de Crecimiento Ross 308 (42d vs 45d vs 48d)</span>
+            <span class="pill accent">Cálculo &lt;1 ms</span>
+          </div>
+          <div class="chart-box" id="chart-ross-box"></div>
+          <div class="table-wrap" style="margin-top:12px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Edad</th>
+                  <th class="num-cell">Peso Vivo</th>
+                  <th class="num-cell">FCR Meta</th>
+                  <th class="num-cell">Canal c/Menud.</th>
+                  <th class="num-cell">Evisc. Seco</th>
+                  <th class="num-cell">Utilidad 800</th>
+                  <th class="num-cell">Utilidad 3 Lotes</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-ross-compare"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-box wow-sims-box" id="wow-simulations-suite-box" style="margin-top:14px;">
+        <div class="panel-title wow-sims-head">
+          <div>
+            <h3>Suite Estratégica · 5 Simulaciones WOW (100% Solo Lectura) &amp; Visión</h3>
+            <span class="sub">Proyecciones de alto impacto en tiempo real sin modificar bitácoras, caja ni lotes oficiales</span>
+          </div>
+          <div class="btn-row wow-head-actions">
+            <span class="pill warn" id="vision-toc-active-pill">TOC: Calculando restricción…</span>
+            <button type="button" class="btn btn-xs btn-duo" id="btn-sim-avi-vision-duo">🎙️ Dúo Avi ↔ Visión</button>
+            <button type="button" class="btn btn-xs btn-vision" id="btn-run-elephant-goldfish">🐘 Junta Crítica (Solo Lectura)</button>
+          </div>
+        </div>
+
+        <div class="wow-sim-tabs" id="wow-sim-tabs" role="tablist" aria-label="Simulaciones Estratégicas">
+          <button type="button" class="wow-sim-tab active" data-wow-sim="sim_1_estirpes_thi">1. Ross vs Cobb &amp; THI El Zulia</button>
+          <button type="button" class="wow-sim-tab" data-wow-sim="sim_2_portafolio_b2b">2. Kasavana &amp; Gabor-Granger B2B</button>
+          <button type="button" class="wow-sim-tab" data-wow-sim="sim_3_nutricion_capex">3. Nutrición SID &amp; Peleteo</button>
+          <button type="button" class="wow-sim-tab" data-wow-sim="sim_4_prefaena_frio">4. Pre-Faena, Frío &amp; ICA 3652</button>
+          <button type="button" class="wow-sim-tab" data-wow-sim="sim_5_anual_toc">5. Plan 52 Semanas TOC &amp; Riesgo</button>
+        </div>
+
+        <div class="wow-sim-controls-row" id="wow-sim-controls"></div>
+        <div class="kpi-grid wow-results-grid" id="wow-sim-results-grid"></div>
+
+        <div class="wow-board-results hidden" id="elephant-goldfish-results"></div>
+
+        <div class="vision-layers-card" id="vision-layers-card">
+          <div class="vision-card-head">
+            <div>
+              <strong>Visión · Arquitectura Gerencial Doctoral &amp; Excelencia Operacional</strong>
+              <div class="sub">Eficacia ejecutiva, ventajas temporales, modelo de negocio, seguridad psicológica y Co-Inteligencia IA</div>
+            </div>
+            <button type="button" class="btn btn-xs btn-vision" data-specialist="gerencia_excelencia_operacional">🗣️ Consultar a Visión</button>
+          </div>
+          <div class="vision-spontaneous-banner hidden" id="vision-spontaneous-banner">
+            <div class="vision-spont-copy" id="vision-spont-text"></div>
+            <button type="button" class="btn btn-xs btn-duo" id="btn-vision-spontaneous-hear">🎙️ Escuchar a Avi y Visión</button>
+          </div>
+          <div class="vision-layers-grid" id="vision-layers-grid"></div>
+          <div class="avi-vision-dialogue-preview hidden" id="avi-vision-dialogue-preview"></div>
+          <div class="vision-learning-capsule" id="vision-learning-capsule"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION 3: OPERACION ACTIVA AV-2 (LOTES 1 A 3) & VALLE DE CAJA -->
+    <section class="canvas-section" id="sec-operacion_av2" data-section="operacion_av2">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 3 · Operación Real de Tu Granja (3 Lotes + Continuidad 900 Pollos)</div>
+          <h2 class="section-title">Cronograma Lotes 1–3 (2.200 Aves) y Flujo de Caja Semanal Continuo</h2>
+          <p class="section-desc">
+            Flujo semanal real desde el primer arriendo hasta los cobros de Lotes 1–3 y los siguientes lotes continuos de 900 pollos cada 15–20 días. Las semanas iniciales en negativo reflejan inversión en alimento e insumos antes de la primera cosecha (24-dic).
+          </p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <div id="av2-summary-badges" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+          <a class="btn btn-xs" id="btn-download-minuta-av2" href="/api/minuta/export" target="_blank" rel="noopener">📄 Acta / Minuta PDF</a>
+        </div>
+      </div>
+
+      <div class="timeline-list" id="lots-timeline-list"></div>
+
+      <div class="panel-box" id="radiografia-costos-panel" style="margin-bottom:14px;">
+        <div class="panel-title">
+          <span>Radiografía Industrial de Costo Unitario, Márgenes y Punto de Equilibrio</span>
+          <span class="pill accent" id="radiografia-pe-pill">Equilibrio y BATNA</span>
+        </div>
+        <div class="kpi-grid" id="radiografia-costos-grid"></div>
+      </div>
+
+      <div class="panel-box" id="flujo-caja-semanal-box">
+        <div class="panel-title">
+          <span id="cashflow-panel-title">Flujo de Caja Semanal Acumulado (Continuo · +Lotes 4, 5, 6 de 900)</span>
+          <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+            <button type="button" class="btn-xs active" id="btn-flow-horizon-cont">Continuo (+900 pollos)</button>
+            <button type="button" class="btn-xs" id="btn-flow-horizon-11">Solo 3 Lotes Iniciales (11 Sem)</button>
+            <span class="pill warn" id="cashflow-peak-pill">Tope caja 23-dic (Víspera 1.ª cosecha · D41 L1): -$31.212.600</span>
+          </div>
+        </div>
+
+        <div class="flex-sim-grid" id="av2-cashflow-flex-panel">
+          <div class="flex-sim-card">
+            <div class="flex-sim-title">1. Simulador Flexible de Cierre Mixto por Lote (Precios &amp; Volúmenes)</div>
+            <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap:8px;">
+              <div class="field">
+                <label for="sel-mix-lote">Lote</label>
+                <select id="sel-mix-lote">
+                  <option value="lote-1">Lote 1 (600 aves)</option>
+                  <option value="lote-2">Lote 2 (800 aves)</option>
+                  <option value="lote-3">Lote 3 (800 aves)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="inp-mix-aves">Tramo Especial (pollos)</label>
+                <input id="inp-mix-aves" type="number" min="0" step="10" value="0" placeholder="Ej. 200" />
+              </div>
+              <div class="field">
+                <label for="inp-mix-precio-esp">Precio Especial ($/kg)</label>
+                <input id="inp-mix-precio-esp" type="number" min="5000" step="100" value="13000" />
+              </div>
+              <div class="field">
+                <label for="inp-mix-precio-resto">Precio Resto ($/kg)</label>
+                <input id="inp-mix-precio-resto" type="number" min="5000" step="100" placeholder="11500" />
+              </div>
+              <div class="field">
+                <label for="sel-mix-edad">Edad Cosecha</label>
+                <select id="sel-mix-edad">
+                  <option value="">Usar lote</option>
+                  <option value="42">42 días</option>
+                  <option value="45">45 días</option>
+                </select>
+              </div>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+              <button type="button" class="btn-xs btn-primary" id="btn-apply-mix-sale">Aplicar al Flujo</button>
+              <button type="button" class="btn-xs btn-emerald" id="btn-preset-mix-200">Ej: 200 @ $13.000 + Resto @ $11.000</button>
+              <button type="button" class="btn-xs" id="btn-reset-mix-sale">Restablecer $11.500</button>
+            </div>
+            <div id="mix-closure-summary" class="muted" style="font-size:0.77rem; margin-top:6px;"></div>
+          </div>
+
+          <div class="flex-sim-card">
+            <div class="flex-sim-title">2. Continuidad Post-Lote 3 (Lotes 4, 5, 6... Cada 15–20 Días)</div>
+            <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap:8px;">
+              <div class="field">
+                <label for="inp-cont-aves">Pollos / nuevo lote</label>
+                <input id="inp-cont-aves" type="number" min="200" max="2500" step="50" value="900" />
+              </div>
+              <div class="field">
+                <label for="inp-cont-cadencia">Ingreso cada (días)</label>
+                <input id="inp-cont-cadencia" type="number" min="14" max="30" step="1" value="18" />
+              </div>
+              <div class="field">
+                <label for="inp-cont-lotes">Lotes futuros visibles</label>
+                <input id="inp-cont-lotes" type="number" min="1" max="6" step="1" value="3" />
+              </div>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; align-items:center;">
+              <button type="button" class="btn-xs btn-primary" id="btn-apply-cont-config">Actualizar Proyección 900</button>
+              <span id="cont-cycle-summary" class="muted" style="font-size:0.77rem;"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-box" id="chart-cashflow-box"></div>
+        <div class="chart-tooltip-bar" id="cashflow-hover-bar">
+          Pasa el cursor o toca cualquier barra semanal para inspeccionar ingresos, egresos y saldo acumulado exacto.
+        </div>
+      </div>
+
+      <div class="panel-box" id="panel-ventas-parciales" style="margin-top:14px;">
+        <div class="panel-title">
+          <span>Salidas Parciales, Cierre Mixto y Desposte / Presas (Mercados Locales)</span>
+          <span class="pill accent" id="ventas-parciales-pill">0 ventas parciales</span>
+        </div>
+        <div id="comparativa-modalidades-grid" class="comparativa-mod-grid"></div>
+        <div class="panel-box" id="desposte-split-calc" style="margin-top:12px; background:var(--bg-subtle);">
+          <div class="panel-title">
+            <span>🍗 Proyector de Desposte / Presas: Pechugas Vendidas + Resto por Mercado</span>
+            <button type="button" class="btn-xs btn-emerald" id="btn-save-desposte-prices">Guardar Precios Desposte</button>
+          </div>
+          <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap:8px;">
+            <div class="field">
+              <label for="calc-desp-aves">Pollos a despostar</label>
+              <input id="calc-desp-aves" type="number" min="1" max="2200" step="10" value="582" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-pechugas-vend">Pechugas ya vendidas (unid.)</label>
+              <input id="calc-desp-pechugas-vend" type="number" min="0" max="2200" step="10" value="200" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-p-pechuga">Pechuga ($/kg)</label>
+              <input id="calc-desp-p-pechuga" type="number" min="5000" step="100" value="14800" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-p-pernil">Muslo/Contramuslo ($/kg)</label>
+              <input id="calc-desp-p-pernil" type="number" min="5000" step="100" value="12500" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-p-alas">Alas ($/kg)</label>
+              <input id="calc-desp-p-alas" type="number" min="4000" step="100" value="13500" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-p-menud">Menudencias ($/kg)</label>
+              <input id="calc-desp-p-menud" type="number" min="2000" step="100" value="6000" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-p-espinazo">Espinazo ($/kg)</label>
+              <input id="calc-desp-p-espinazo" type="number" min="1000" step="100" value="4500" />
+            </div>
+            <div class="field">
+              <label for="calc-desp-target-corte">Simular corte objetivo</label>
+              <select id="calc-desp-target-corte">
+                <option value="pechuga" selected>Pechuga (~34% canal)</option>
+                <option value="canal">Pollo en Canal c/m</option>
+                <option value="vivo">Pollo Vivo (en pie)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="calc-desp-target-pechuga">Peso objetivo (kg)</label>
+              <input id="calc-desp-target-pechuga" type="number" min="0.45" max="3.70" step="0.01" value="0.84" placeholder="Ej. 0,95" />
+            </div>
+          </div>
+          <div class="meta-pechuga-bar">
+            <span class="muted" style="font-size:0.74rem; font-weight:600;">Simular escenarios (o digita cualquier peso/corte):</span>
+            <button type="button" class="btn-xs" id="btn-sim-corte-base" data-sim-corte="pechuga" data-pechuga-target="0.84">Plan base 42d (~0,84 kg pech.)</button>
+            <button type="button" class="btn-xs" data-sim-corte="pechuga" data-pechuga-target="0.95">Ej. Pechuga 0,95 kg</button>
+            <button type="button" class="btn-xs" data-sim-corte="canal" data-pechuga-target="2.70">Ej. Canal 2,70 kg</button>
+            <span id="desposte-pechuga-hito" class="pechuga-hito-pill"></span>
+          </div>
+          <div id="desposte-split-result" style="margin-top:8px; font-size:0.8rem;"></div>
+        </div>
+        <div class="panel-box" id="commercial-evaluator-box" style="margin-top:12px; background:var(--bg-subtle);">
+          <div class="panel-title">
+            <span>Evaluador de Oportunidades Comerciales (Desposte y Salidas Anticipadas)</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button type="button" class="btn-xs" id="btn-eval-100-pollos">Evaluar 100 pollos hoy (2,10 kg a $10.000/kg)</button>
+              <button type="button" class="btn-xs btn-emerald" id="btn-eval-50-pechugas">Simular 100 Pechugas a $14.500 (Caja + Inventario)</button>
+            </div>
+          </div>
+          <div id="commercial-opportunity-result" class="muted" style="font-size:0.8rem;">
+            Pulsa cualquiera de los escenarios rápidos (o pregúntale a <strong>Avi</strong>) para calcular margen, déficit de caja Día 1 y kg de presas sobrantes por colocar en frío.
+          </div>
+        </div>
+        <form id="form-partial-sale" class="form-row" style="margin-top:12px;">
+          <div class="field">
+            <label for="inp-sale-modalidad">Modalidad</label>
+            <select id="inp-sale-modalidad">
+              <option value="canal">En Canal c/Menudencias</option>
+              <option value="en_pie">En Pie (Sin Sacrificio)</option>
+              <option value="piezas">Presas / Desposte</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="inp-sale-cliente">Cliente / Comprador</label>
+            <input id="inp-sale-cliente" type="text" placeholder="Ej. Asadero El Norte" required />
+          </div>
+          <div class="field">
+            <label for="inp-sale-corte">Corte / Detalle</label>
+            <input id="inp-sale-corte" type="text" placeholder="Ej. Pechuga y pernil" />
+          </div>
+          <div class="field">
+            <label for="inp-sale-aves">Cant. Aves</label>
+            <input id="inp-sale-aves" type="number" min="0" value="0" />
+          </div>
+          <div class="field">
+            <label for="inp-sale-kg">Peso (kg)</label>
+            <input id="inp-sale-kg" type="number" min="0" step="0.1" placeholder="Ej. 45.5" required />
+          </div>
+          <div class="field">
+            <label for="inp-sale-precio">Precio/kg (COP)</label>
+            <input id="inp-sale-precio" type="number" min="1000" step="100" value="11500" required />
+          </div>
+          <button type="submit" class="btn-emerald">+ Registrar Venta Parcial</button>
+        </form>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Modalidad</th>
+                <th class="num-cell">Aves</th>
+                <th class="num-cell">Kg</th>
+                <th class="num-cell">Ingreso</th>
+                <th class="num-cell">Costo Prorrat.</th>
+                <th class="num-cell">Margen Bruto</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-ventas-parciales"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION 4: PLAN MAESTRO AV-1, ESCALA ANUAL 12 MESES & ALIMENTO PROPIO -->
+    <section class="canvas-section" id="sec-plan_av1" data-section="plan_av1">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 4 · Plan Financiero Maestro AV-1 & Puente Planta Propia</div>
+          <h2 class="section-title">Escala Anual (12 Meses · 6 Camadas) & Impacto de Alimento Propio (IND-ALIM)</h2>
+          <p class="section-desc">
+            Comparativa anual entre concentrado comercial y harina propia en engorde (<code>d22+</code>) con ajuste de conversión del 3,8%.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col-even">
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Puente Alimento Propio vs Comercial (800 Aves Engorde)</span>
+            <span class="pill ok" id="ahorro-propio-pill">Ahorro +$908.800 / lote</span>
+          </div>
+          <div id="puente-alimento-cards" class="kpi-grid" style="grid-template-columns:1fr 1fr;"></div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Proyección Anual 12 Meses (4.600 Aves Iniciadas · 6 Camadas)</span>
+            <span class="pill accent" id="anual-roi-pill">ROI 266,58%</span>
+          </div>
+          <div id="anual-summary-cards" class="kpi-grid" style="grid-template-columns:1fr 1fr;"></div>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Camada</th>
+              <th class="num-cell">Aves Inic.</th>
+              <th>Dieta Aplicada</th>
+              <th class="num-cell">Arriendo</th>
+              <th class="num-cell">Costo Total Canal</th>
+              <th class="num-cell">Ingreso Canal</th>
+              <th class="num-cell">Utilidad Neta</th>
+              <th class="num-cell">Caja Acumulada</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-anual-camadas"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCION 5: BITACORA DIARIA Y PESAJES LOTE 1 -->
+    <section class="canvas-section" id="sec-bitacora_pesajes" data-section="bitacora_pesajes">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 5 · Seguimiento Diario en Campo (Lote 1 · 600 Aves)</div>
+          <h2 class="section-title">Bitácora Diaria de Galpón & Pesajes Semanales vs Curva Ross 308</h2>
+          <p class="section-desc">
+            Registra mortalidad, alimento, temperatura o muestras semanales en segundos, por formulario o voz, con reversibilidad total.
+          </p>
+        </div>
+        <div id="bitacora-kpi-pills" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+      </div>
+
+      <div class="two-col-even">
+        <form id="form-daily-log" class="panel-box">
+          <div class="panel-title">
+            <span>Registrar Evento Diario (Campo Rápido)</span>
+            <span class="pill accent" id="bitacora-dia-actual-pill">Hoy</span>
+          </div>
+          <div class="quick-preset-row" style="margin-bottom:10px;">
+            <button type="button" class="btn-xs btn-emerald" id="btn-quick-visita-ok">✓ Visita OK hoy (0 bajas)</button>
+            <button type="button" class="btn-xs" id="btn-quick-libre-demanda">🌾 Alimento a libre demanda (sin pesar)</button>
+            <button type="button" class="btn-xs" id="btn-quick-baja">⚠️ Reportar baja (+1)</button>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="inp-dia">Día (1–49)</label>
+              <input id="inp-dia" type="number" min="1" max="49" value="1" required />
+            </div>
+            <div class="field">
+              <label for="inp-mort">Mortalidad</label>
+              <input id="inp-mort" type="number" min="0" value="0" />
+            </div>
+            <div class="field">
+              <label for="inp-desc">Descarte</label>
+              <input id="inp-desc" type="number" min="0" value="0" />
+            </div>
+            <div class="field">
+              <label for="inp-alim">Alimento (kg)</label>
+              <input id="inp-alim" type="number" min="0" step="0.1" placeholder="Opcional" />
+            </div>
+            <div class="field">
+              <label for="inp-temp">Temp (°C)</label>
+              <input id="inp-temp" type="number" min="15" max="45" step="0.1" placeholder="31.5" />
+            </div>
+            <div class="field">
+              <label for="inp-agua">Agua (L)</label>
+              <input id="inp-agua" type="number" min="0" step="0.5" placeholder="Opcional" />
+            </div>
+          </div>
+          <div class="form-row" style="margin-top:10px; grid-template-columns: 1fr auto;">
+            <div class="field">
+              <label for="inp-obs">Observación en Galpón</label>
+              <input id="inp-obs" type="text" placeholder="Ej. Visita nocturna, alimento a libre demanda ok" />
+            </div>
+            <button type="submit" class="btn-primary">Guardar Día</button>
+          </div>
+        </form>
+
+        <form id="form-weighing" class="panel-box">
+          <div class="panel-title">
+            <span>Registrar Pesaje Semanal de Muestra</span>
+            <span class="pill accent" id="weighing-avg-preview">Promedio: — g/pollo</span>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="inp-pes-dia">Día Muestra</label>
+              <select id="inp-pes-dia">
+                <option value="7">Día 7 (Sem 1)</option>
+                <option value="14">Día 14 (Sem 2)</option>
+                <option value="21">Día 21 (Sem 3)</option>
+                <option value="28">Día 28 (Sem 4)</option>
+                <option value="35">Día 35 (Sem 5)</option>
+                <option value="40">Día 40 (Pre-Navidad 22-dic)</option>
+                <option value="42">Día 42 (Sem 6 · 24-dic)</option>
+                <option value="45">Día 45 (Extra +3d)</option>
+                <option value="48">Día 48</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="inp-pes-aves">Aves Pesadas</label>
+              <input id="inp-pes-aves" type="number" min="1" max="600" value="30" required />
+            </div>
+            <div class="field">
+              <label for="inp-pes-kg">Peso Total Muestra (kg)</label>
+              <input id="inp-pes-kg" type="number" min="0.1" step="0.01" placeholder="Ej. 6.15" required />
+            </div>
+            <button type="submit" class="btn-emerald">Registrar Pesaje</button>
+          </div>
+          <div class="table-wrap" style="margin-top:12px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Día</th>
+                  <th class="num-cell">Meta Ross</th>
+                  <th class="num-cell">Real (g)</th>
+                  <th class="num-cell">Desvío</th>
+                  <th class="num-cell">FCR / IEP</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-pesajes"></tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel-box growth-tracker-panel" id="growth-tracker-panel" style="margin-top:14px;">
+        <div class="panel-title" style="flex-wrap:wrap; gap:8px;">
+          <div>
+            <span>Seguimiento Curva de Peso Objetivo Pre-Navidad (Lote 1 · Real vs Ross 308)</span>
+            <div class="sub muted" id="growth-tracker-sub">Compara pesajes semanales reales contra la meta de sacrificio antes de festivos (22-dic Día 40 o 24-dic Día 42).</div>
+          </div>
+          <div class="growth-target-pills" style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+            <button type="button" class="btn-xs active" id="btn-target-dec22">🎄 Meta Pre-Navidad: 22-dic (D40 · 2,79 kg)</button>
+            <button type="button" class="btn-xs" id="btn-target-dec24">Estándar 6 sem: 24-dic (D42 · 3,00 kg)</button>
+          </div>
+        </div>
+        <div class="growth-curve-kpis" id="growth-curve-kpis"></div>
+        <div class="chart-box" id="growth-curve-chart-box"></div>
+        <div class="chart-tooltip-bar" id="growth-curve-tooltip">
+          Toca o pasa el cursor por cada día o pesaje semanal para comparar gramos reales vs meta Ross hacia la cosecha navideña.
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Día / Fecha</th>
+              <th>Etapa</th>
+              <th class="num-cell">Aves Vivas</th>
+              <th class="num-cell">Bajas</th>
+              <th class="num-cell">Meta Ross</th>
+              <th class="num-cell">Alim. Real</th>
+              <th class="num-cell">Temp / Agua</th>
+              <th>Observación</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-bitacora"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCION 6: BODEGA SOLLA & ESTRES TERMICO -->
+    <section class="canvas-section" id="sec-bodega_termica" data-section="bodega_termica">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 6 · Nutrición Escalonada Solla (Kanban), Clima El Zulia &amp; Transporte Terios</div>
+          <h2 class="section-title">Bodega Justo a Tiempo Solla, Densidad Térmica y Viajes Terios</h2>
+          <p class="section-desc">
+            Secuencia oficial 1 → 2 → 3 sin inmovilizar capital: registra bultos recibidos, vigila densidad por sección en clima cálido de El Zulia (&le;24 kg/m&sup2;) y asigna el kilometraje real de tu camioneta al costo del pollo.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col-even">
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Secuencia Nutricional Solla &amp; Bodega Lote 1 (Bultos 40 kg)</span>
+            <span class="pill warn" id="bodega-faltante-pill">Plan JIT Sem 2–6: 64 bultos escalonados</span>
+          </div>
+          <div id="bodega-pipeline-container"></div>
+          <div id="bodega-bars-container"></div>
+          <div class="quick-preset-row">
+            <button id="btn-buy-nutre2" type="button">+2 bultos Nutrepollo (hoy)</button>
+            <button id="btn-buy-nutre5" type="button">+5 bultos Nutrepollo</button>
+            <button id="btn-buy-broiler8" type="button">+8 bultos Broiler I</button>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Clima &amp; Densidad por Sección — Vereda La Alejandra, El Zulia</span>
+            <span class="pill ok" id="termica-estado-pill">ÓPTIMO</span>
+          </div>
+          <div id="termica-gauge-body"></div>
+        </div>
+      </div>
+
+      <div class="panel-box" id="panel-viajes-transporte" style="margin-top:14px;">
+        <div class="panel-title">
+          <span>Viajes en Camioneta Terios, Kilometraje y Combustible</span>
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <button type="button" class="btn-xs" id="btn-trip-mode-open">🚗 Salí para granja</button>
+            <button type="button" class="btn-xs btn-emerald" id="btn-trip-mode-close">🏁 Llegué (cerrar)</button>
+            <button type="button" class="btn-xs" id="btn-trip-timer-15m" title="Programa un recordatorio visual y de voz en 15 minutos al llegar a la granja">⏱️ Recordarme en 15 min odómetro Terios</button>
+            <span class="pill hidden" id="trip-timer-status"></span>
+            <span class="pill accent" id="viajes-resumen-pill">0 viajes · 0 km</span>
+          </div>
+        </div>
+        <form id="form-farm-trip" class="form-row">
+          <div class="field">
+            <label for="inp-trip-action">Acción</label>
+            <select id="inp-trip-action">
+              <option value="open">Abrir Nuevo Viaje</option>
+              <option value="close">Cerrar Viaje en Curso</option>
+              <option value="update">Actualizar / Gastos</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="inp-trip-motivo">Motivo / Ruta</label>
+            <input id="inp-trip-motivo" type="text" value="Viaje a granja" />
+          </div>
+          <div class="field">
+            <label for="inp-trip-odo-ini">Odóm. Inicial (km)</label>
+            <input id="inp-trip-odo-ini" type="number" step="1" placeholder="52300" />
+          </div>
+          <div class="field">
+            <label for="inp-trip-odo-fin">Odóm. Final (km)</label>
+            <input id="inp-trip-odo-fin" type="number" step="1" placeholder="52316" />
+          </div>
+          <div class="field">
+            <label for="inp-trip-km-est">Km Estimados</label>
+            <input id="inp-trip-km-est" type="number" step="0.5" value="8" />
+          </div>
+          <div class="field">
+            <label for="inp-trip-comb">Combustible (COP)</label>
+            <input id="inp-trip-comb" type="number" min="0" step="500" value="0" />
+          </div>
+          <div class="field">
+            <label for="inp-trip-peajes">Peajes/Otros (COP)</label>
+            <input id="inp-trip-peajes" type="number" min="0" step="500" value="0" />
+          </div>
+          <div class="field">
+            <label for="inp-trip-obs">Observación</label>
+            <input id="inp-trip-obs" type="text" placeholder="Nota desplazamiento" />
+          </div>
+          <button type="submit" class="btn-primary">🚗 Guardar / Cerrar Viaje</button>
+        </form>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Odómetro</th>
+                <th class="num-cell">Km</th>
+                <th class="num-cell">Costo Aplicado</th>
+                <th>Estado &amp; Nota</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-viajes-transporte"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION 7: TRANSUSTANCIADOR EXCEL & PUENTE CI/CD ANTIGRAVITY -->
+    <section class="canvas-section" id="sec-puente_antigravity" data-section="puente_antigravity">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Módulo 7 · Reportes Excel Vivos, Acta PDF y Respaldo Técnico</div>
+          <h2 class="section-title">Reportes Excel en Vivo &amp; Acta de Operaciones</h2>
+          <p class="section-desc">
+            Descarga los libros Excel actualizados con todas tus compras, viajes y ventas de la granja, más tu Acta / Minuta ejecutiva en PDF.
+          </p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <a class="btn owner-only-control" id="btn-export-av1" href="/api/excel/download/AV1" download>📥 Descargar Plantilla AV-1 (.xlsx)</a>
+          <a class="btn btn-primary" id="btn-export-av2" href="/api/excel/download/AV2" download>📥 Descargar Excel Granja (.xlsx)</a>
+          <a class="btn btn-emerald" id="btn-download-minuta" href="/api/minuta/export" target="_blank" rel="noopener">📄 Descargar Acta / Minuta (PDF)</a>
+          <button type="button" class="btn btn-xs owner-only-control" id="btn-approve-all-rfcs">✓ Aprobar Todos los RFC</button>
+        </div>
+      </div>
+
+      <div class="panel-box" id="export-guide-banner" style="margin-bottom:14px;">
+        <div class="panel-title">
+          <span>Guía Rápida de Exportación &amp; Minuta</span>
+          <span class="pill ok">Excel + Acta PDF</span>
+        </div>
+        <div class="export-guide-steps">
+          <div class="guide-step"><strong>1. Excel Vivo (.xlsx):</strong> Pulsa <em>Descargar Excel Granja</em> (incluye hoja con tus viajes Terios, ventas parciales y comparativa).</div>
+          <div class="guide-step"><strong>2. Acta / Minuta PDF:</strong> Pulsa <em>Descargar Acta / Minuta (PDF)</em>; en la vista que abre presiona <code>Ctrl+P</code> → <em>Guardar como PDF</em>.</div>
+          <div class="guide-step"><strong>3. Por Voz / Chat:</strong> Pídele a <span class="js-agent-name-inline">Avi</span> “descarga el Excel” o “exporta la minuta” y te iluminará el botón exacto.</div>
+        </div>
+      </div>
+
+      <div class="two-col-even" id="sec7-tools-grid">
+        <div class="panel-box">
+          <div class="panel-title">Subir Excel Actualizado de la Granja (.xlsx)</div>
+          <div class="dropzone" id="excel-dropzone">
+            <p style="margin:0 0 8px; font-weight:600;">Arrastra aquí tu archivo Excel (.xlsx) modificado</p>
+            <p class="muted" style="margin:0 0 12px; font-size:0.8rem;">Detecta celdas amarillas, bitácora y pesajes; calcula el impacto exacto en pesos antes de aplicar.</p>
+            <input type="file" id="excel-file-input" accept=".xlsx" class="hidden" />
+            <button id="btn-select-excel" type="button">Seleccionar Archivo .xlsx</button>
+          </div>
+          <div id="excel-diff-report" style="margin-top:12px;"></div>
+        </div>
+
+        <div class="panel-box owner-only-control" id="panel-bridge-rfc-box">
+          <div class="panel-title">
+            <span>Puente CI/CD Antigravity (Solo Administrador)</span>
+            <span class="pill accent" id="rfc-counts-pill">0 RFCs</span>
+          </div>
+          <div class="speed-grid">
+            <div class="speed-card">
+              <strong style="color:var(--emerald);">Velocidad 1 · Campo</strong>
+              <p class="muted" style="margin:4px 0 0; font-size:0.75rem;">Mortalidad, alimento, pesajes y compras -> aplicación inmediata reversible.</p>
+            </div>
+            <div class="speed-card">
+              <strong style="color:var(--accent);">Velocidad 2 · Táctica</strong>
+              <p class="muted" style="margin:4px 0 0; font-size:0.75rem;">What-If de precios, edad 42d/45d o clima -> recálculo &lt;1 ms.</p>
+            </div>
+            <div class="speed-card">
+              <strong style="color:var(--violet);">Velocidad 3 · RFC Código</strong>
+              <p class="muted" style="margin:4px 0 0; font-size:0.75rem;">Nuevas fórmulas, columnas o UI -> tarjeta RFC con aprobación humana.</p>
+            </div>
+          </div>
+
+          <form id="form-new-rfc" style="margin-bottom:14px;">
+            <div class="form-row" style="grid-template-columns: 1fr 1fr auto;">
+              <div class="field">
+                <label for="inp-rfc-title">Nueva Mejora Estructural (RFC)</label>
+                <input id="inp-rfc-title" type="text" placeholder="Ej. Incluir descuento por pronto pago Solla" required />
+              </div>
+              <div class="field">
+                <label for="inp-rfc-desc">Especificación Técnica</label>
+                <input id="inp-rfc-desc" type="text" placeholder="Detalle del cambio en motor/Excel/UI" required />
+              </div>
+              <button type="submit" class="btn-primary">Proponer RFC</button>
+            </div>
+          </form>
+
+          <div class="rfc-list" id="rfc-list-container"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Presencia Flotante Discreta de Avi (Nébula estilo ChatGPT, móvil y arrastrable) -->
+  <div class="avi-nebula-widget" id="avi-nebula-widget" data-avi-mode="auto_follow" aria-live="polite">
+    <button
+      type="button"
+      class="avi-nebula-orb-btn"
+      id="avi-nebula-orb-btn"
+      title="Clic para hablar/detener con Avi · Arrastra para moverla por la pantalla"
+      aria-label="Hablar con Avi o arrastrar presencia flotante"
+    >
+      <canvas id="avi-nebula-canvas" width="140" height="140"></canvas>
+    </button>
+
+    <div class="avi-nebula-capsule" id="avi-nebula-capsule">
+      <div class="avi-nebula-head">
+        <span class="avi-nebula-state-dot" id="avi-nebula-state-dot"></span>
+        <span class="avi-nebula-state-text" id="avi-nebula-state-text">Avi · Lista</span>
+        <button type="button" class="btn-xs avi-mini-toggle-btn" id="btn-nebula-mini-toggle" title="Expandir o contraer botones en móvil" aria-label="Expandir controles de Avi">▾</button>
+        <button type="button" class="btn-xs avi-chat-toggle-btn" id="btn-nebula-chat-toggle" title="Desplegar u ocultar panel de conversación y teclado">
+          <span class="avi-chat-label" id="avi-chat-toggle-label">Charla</span> <span class="avi-unread-badge hidden" id="avi-unread-badge">0</span>
+        </button>
+      </div>
+      <div class="avi-live-whisper hidden" id="avi-live-whisper"></div>
+      <div class="avi-pos-bar" title="Mover a Avi por la pantalla o dejarla en movimiento autónomo">
+        <button type="button" class="avi-pos-btn active" data-avi-pos="auto_follow" title="Avi se mueve según el módulo activo">✨ Auto</button>
+        <button type="button" class="avi-pos-btn" data-avi-pos="top-left" title="Arriba izquierda">↖</button>
+        <button type="button" class="avi-pos-btn" data-avi-pos="top-right" title="Arriba derecha">↗</button>
+        <button type="button" class="avi-pos-btn" data-avi-pos="bottom-left" title="Abajo izquierda">↙</button>
+        <button type="button" class="avi-pos-btn" data-avi-pos="bottom-right" title="Abajo derecha">↘</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cajón Conversacional Discreto (oculto por defecto; se despliega bajo demanda) -->
+  <div class="copilot-dock dock-collapsed" id="copilot-dock">
+    <div class="dock-header-bar">
+      <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+        <strong>💬 <span class="js-agent-name-inline">Avi</span></strong>
+        <button id="btn-toggle-transcript" type="button" class="btn-ghost btn-xs" title="Mostrar u ocultar historial de texto">
+          📜 Historial
+        </button>
+        <button id="btn-noise-filter" type="button" class="btn-ghost btn-xs" title="Alternar filtro acústico exigente para ruido de galpón/viento vs oficina">
+          🛡 Ruido: Galpón
+        </button>
+        <button id="btn-voice-council-toggle" type="button" class="btn-ghost btn-xs" title="Activar o silenciar voz propia de los expertos al moderar">
+          🔊 Consejo: Voz ON
+        </button>
+      </div>
+      <button id="btn-close-dock" type="button" class="btn-ghost btn-xs" title="Plegar panel de conversación y despejar el lienzo">
+        ✕ Ocultar
+      </button>
+    </div>
+    <div class="dock-specialists-bar" id="dock-specialists-bar">
+      <button type="button" class="btn-xs btn-vision" data-specialist="gerencia_excelencia_operacional">🧠 Visión (M)</button>
+      <button type="button" class="btn-xs btn-duo" id="btn-avi-vision-dialogue">🎙️ Avi ↔ Visión</button>
+      <button type="button" class="btn-xs" data-specialist="bsc_kaplan_norton">📊 Dr. Kaplan (M)</button>
+      <button type="button" class="btn-xs" data-specialist="porter_estrategia">🛡️ Prof. Porter (M)</button>
+      <button type="button" class="btn-xs" data-specialist="kotler_mercadotecnia">🎯 Dra. Helena (F)</button>
+      <button type="button" class="btn-xs" data-specialist="zootecnia_avicola">🍗 Dra. Valeria Avícola (F)</button>
+      <button type="button" class="btn-xs" data-specialist="sanidad_bioseguridad_ica">🩺 Dra. Camila ICA (F)</button>
+      <button type="button" class="btn-xs" data-specialist="nutricion_planta_concentrados">🌾 Dr. Andrés Nutrición (M)</button>
+      <button type="button" class="btn-xs" data-specialist="innovacion_phd">🧪 Dr. Mateo PhD (M)</button>
+      <button type="button" class="btn-xs btn-emerald" id="btn-prep-negociacion">🤝 Chris Voss (M)</button>
+    </div>
+    <div class="dock-transcript hidden" id="dock-transcript"></div>
+    <form class="dock-input-row" id="dock-chat-form">
+      <input
+        id="dock-chat-input"
+        type="text"
+        placeholder="Escríbele a Avi, registra bajas ('hoy murió 1 pollo'), simula ('45 días') o pídele moverse..."
+        autocomplete="off"
+      />
+      <input type="file" id="dock-image-input" accept="image/*" class="hidden" />
+      <button id="btn-attach-image" type="button" title="Enviar foto de factura Solla o galpón a gpt-6.1-sol">
+        📷 Foto
+      </button>
+      <button id="btn-send-chat" type="submit" class="btn-primary">
+        Enviar
+      </button>
+      <button id="btn-speak-last" type="button" title="Leer última respuesta con voz ejecutiva ágil a 1.18x">
+        🔊 1.18x
+      </button>
+    </form>
+  </div>
+
+  <!-- Banner Flotante de Briefing Guiado (Ciclo 2 Coreografía) -->
+  <div id="briefing-banner" class="briefing-banner hidden" role="status" aria-live="polite"></div>
+
+  <!-- Modal Consejo de Expertos (EXP-1..4 + Tríada Técnica) -->
+  <div class="modal-backdrop hidden" id="modal-council">
+    <div class="modal-card modal-card-wide">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <div>
+          <strong style="font-size:1.05rem;">✦ Consejo Estratégico de Avi &amp; Subagentes Especialistas</strong>
+          <p class="muted" style="margin:2px 0 0; font-size:0.78rem;">Mesa multidisciplinaria de ingeniería industrial, estrategia competitiva, mercadeo, negociación táctica y zootecnia Ross 308.</p>
+        </div>
+        <button id="btn-close-council" type="button" class="btn-xs">Cerrar</button>
+      </div>
+
+      <div class="expert-badges" id="expert-council-badges" style="margin-bottom:12px;">
+        <span class="expert-chip" data-expert="EXP-VISION">Visión (Gerencia · 5 Capas Estratégicas)</span>
+        <span class="expert-chip active" data-expert="EXP-1">Kaplan &amp; Norton (BSC · KPIs)</span>
+        <span class="expert-chip" data-expert="EXP-2">Michael Porter (5 Fuerzas)</span>
+        <span class="expert-chip" data-expert="EXP-3">Philip Kotler (Mercadeo)</span>
+        <span class="expert-chip" data-expert="EXP-4">Chris Voss + Harvard/Gates (Negociación)</span>
+        <span class="expert-chip" data-expert="BE-2">Zootecnia PhD Ross 308 + Innovación</span>
+        <span class="expert-chip" data-expert="EXP-ICA">Dra. Camila (Sanidad &amp; ICA 3652)</span>
+        <span class="expert-chip" data-expert="EXP-NUTRI">Dr. Andrés (Nutrición SID &amp; Peleteo)</span>
+      </div>
+
+      <div class="council-grid">
+        <div class="council-card">
+          <div class="council-tag">Kaplan &amp; Norton · Steve Jobs</div>
+          <strong>Cuadro de Mando (KPIs) &amp; Foco</strong>
+          <p class="muted">Alinea utilidad ($/lote), tope de capital 23-dic (víspera 1.ª cosecha), FCR real vs tabla, mortalidad y densidad El Zulia sin distraer del producto ancla en canal.</p>
+        </div>
+        <div class="council-card">
+          <div class="council-tag">Michael Porter · Philip Kotler</div>
+          <strong>Costo Directo ($3.200) &amp; Canales</strong>
+          <p class="muted">Compra directa sin intermediarios (-28,9% en Lotes 2+), Solla JIT y diferenciación fresca local con control total de inventario de presas.</p>
+        </div>
+        <div class="council-card">
+          <div class="council-tag">Chris Voss · Postura Gates/IBM</div>
+          <strong>Negociación Táctica Sin Regalar Margen</strong>
+          <p class="muted">Prepara a David y Mauricio con calma de póker, preguntas calibradas y compromisos reales sobre flujo continuo cada 18 días.</p>
+        </div>
+        <div class="council-card">
+          <div class="council-tag">Avícola Senior &amp; PhD Innovación</div>
+          <strong>Zootecnia Práctica y Galpón Vivo</strong>
+          <p class="muted">Curva Ross 308 flexible para simular cualquier peso y corte objetivo, entresaca preventiva por calor, bitácora 1-tap en celular y viajes Terios al costo.</p>
+        </div>
+      </div>
+
+      <div class="council-triad-footer">
+        <strong>Tríada Backend Verificada:</strong>
+        <span>BE-1 Puente Antigravity (3 Velocidades + RFC)</span> ·
+        <span>BE-2 CFO Forense ($0,00 vs Excel)</span> ·
+        <span>BE-3 Zootecnista Ross 308 AP (Clima Cúcuta)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paleta de Comandos Rápida (Ctrl+K) -->
+  <div class="modal-backdrop hidden" id="modal-cmd">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <strong>Paleta Rápida de Operaciones (Ctrl+K)</strong>
+        <button id="btn-close-cmd" type="button" class="btn-xs">Esc</button>
+      </div>
+      <input id="cmd-search-input" type="text" placeholder="Escribe un comando, simulación o sección (ej. 45d, voz, excel, rfc, solar)..." style="width:100%;" />
+      <div class="cmd-results" id="cmd-results"></div>
+    </div>
+  </div>
+
+  <!-- Modal Seguro de Credenciales -->
+  <div class="modal-backdrop hidden" id="modal-credentials">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <div>
+          <strong style="font-size:1.05rem;">⚙️ Configuración Segura de Integraciones</strong>
+          <p class="muted" style="margin:2px 0 0; font-size:0.78rem;">Las claves se guardan exclusivamente en `.env` local; nunca se muestran de regreso en el navegador.</p>
+        </div>
+        <button id="btn-close-credentials" type="button" class="btn-xs">Cerrar</button>
+      </div>
+
+      <div id="credentials-status-badges" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;"></div>
+
+      <form id="form-credentials" style="display:flex; flex-direction:column; gap:10px;">
+        <div class="field">
+          <label for="cred-openai-key">OpenAI API Key (dejar vacío para conservar actual)</label>
+          <input id="cred-openai-key" type="password" placeholder="sk-..." autocomplete="new-password" />
+        </div>
+        <div class="two-col-even" style="gap:10px;">
+          <div class="field">
+            <label for="cred-voice-name">Voz Realtime OpenAI</label>
+            <select id="cred-voice-name">
+              <option value="marin">marin (Recomendada)</option>
+              <option value="cedar">cedar</option>
+              <option value="coral">coral</option>
+              <option value="sage">sage</option>
+              <option value="ash">ash</option>
+              <option value="verse">verse</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cred-voice-speed">Velocidad de Habla (1.18x ágil)</label>
+            <input id="cred-voice-speed" type="number" min="0.8" max="1.5" step="0.02" value="1.18" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cred-supa-url">Supabase URL (Opcional Nube + Realtime)</label>
+          <input id="cred-supa-url" type="text" placeholder="https://xxxx.supabase.co" />
+        </div>
+        <div class="field">
+          <label for="cred-supa-key">Supabase Service Role Key o Anon Key</label>
+          <input id="cred-supa-key" type="password" placeholder="eyJ..." autocomplete="new-password" />
+        </div>
+        <div class="two-col-even" style="gap:10px;">
+          <div class="field">
+            <label for="cred-tg-token">Telegram Bot Token (@BotFather)</label>
+            <input id="cred-tg-token" type="password" placeholder="123456:ABC..." autocomplete="new-password" />
+          </div>
+          <div class="field">
+            <label for="cred-tg-chats">Telegram Allowed Chat IDs (opcional)</label>
+            <input id="cred-tg-chats" type="text" placeholder="Ej. 123456789, 987654321" />
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
+          <button type="submit" class="btn-primary">Guardar y Reconectar en Caliente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL EXPLICATIVO DE CUENTAS CUADRADAS -->
+  <div class="modal-backdrop hidden" id="modal-concil">
+    <div class="modal-card" style="max-width:540px;">
+      <div class="panel-title">
+        <span>✓ Auditoría Automática · Cuentas Cuadradas</span>
+        <button id="btn-close-concil" class="btn-xs" type="button">✕</button>
+      </div>
+      <div id="concil-modal-body" style="font-size:0.84rem; line-height:1.5;">
+        <p style="margin-top:0;">Cada número que ves en pantalla se recalcula y se compara automáticamente contra las fórmulas oficiales del libro contable de la granja.</p>
+        <div id="concil-checks-list" class="opp-verdict"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH GATE OVERLAY (MULTI-USUARIO POR PERFIL Y PIN) -->
+  <div class="auth-gate-overlay hidden" id="auth-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="auth-gate-title">
+    <div class="auth-gate-card">
+      <div class="auth-brand-row">
+        <div class="auth-crest" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4 18V9.5L12 4L20 9.5V18" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.5 18V12.5H15.5V18" stroke="#d1fae5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="8.8" r="1.4" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div>
+          <h2 id="auth-gate-title" style="margin:0 0 2px; font-size:1.12rem;">Granja La Alejandra</h2>
+          <p class="muted" style="margin:0; font-size:0.78rem;">Vereda La Alejandra · El Zulia, Área Metropolitana de Cúcuta</p>
+        </div>
+      </div>
+      <p class="muted" style="margin:0 0 12px; font-size:0.82rem;">Selecciona tu perfil e ingresa tu código PIN para abrir el panel de la granja.</p>
+      <div class="auth-profiles-grid" id="auth-profiles-grid"></div>
+      <form id="form-auth-login" style="margin-top:14px;">
+        <input type="hidden" id="auth-selected-username" value="david" />
+        <div class="field">
+          <label for="auth-pin-input">Código PIN</label>
+          <input id="auth-pin-input" type="password" inputmode="numeric" placeholder="Código PIN (4 dígitos)" required autocomplete="current-password" />
+        </div>
+        <div id="auth-login-error" class="muted" style="color:#f43f5e; font-size:0.8rem; min-height:18px; margin-top:4px;"></div>
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:8px; padding:10px 14px; justify-content:center;">Ingresar a Granja La Alejandra</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE PERFIL, PERMISOS Y PLANTILLA REUTILIZABLE -->
+  <div class="modal-backdrop hidden" id="modal-users">
+    <div class="modal-card" style="max-width:620px;">
+      <div class="panel-title">
+        <span>Perfil Activo y Gestión de Acceso</span>
+        <button id="btn-close-users" class="btn-xs" type="button">✕</button>
+      </div>
+      <div id="user-session-summary" style="margin-bottom:12px;"></div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+        <button id="btn-auth-logout" class="btn" type="button">Cambiar de Usuario / Cerrar Sesión</button>
+      </div>
+
+      <div id="owner-admin-zone" class="owner-only-control">
+        <div class="panel-box" style="margin-bottom:12px; background:var(--bg-subtle);">
+          <div class="panel-title">
+            <span>Controles de Administración y Desarrollo (Mauricio Bonilla)</span>
+            <span class="pill accent">Admin App / Dev</span>
+          </div>
+          <p class="muted" style="margin:0 0 8px; font-size:0.79rem;">
+            David Bonilla es el Dueño de Granja La Alejandra y accede al negocio avícola y operación completa. Mauricio administra la plataforma, credenciales, RFCs de desarrollo y el módulo reservado de futura planta.
+          </p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button id="btn-owner-mode-real" type="button" class="btn-xs active">Granja La Alejandra (Completa)</button>
+            <button id="btn-owner-mode-all" type="button" class="btn-xs">Incluir Plantilla Planta (AV-1)</button>
+            <button id="btn-owner-preview-partner" type="button" class="btn-xs btn-amber">Vista Dueño Avícola (David)</button>
+            <button id="btn-export-clean-blueprint" type="button" class="btn-xs btn-emerald">Exportar Plantilla Limpia (.json)</button>
+          </div>
+        </div>
+
+        <form id="form-upsert-user" class="form-row" style="grid-template-columns: 1fr 1fr; gap:8px;">
+          <div class="field">
+            <label for="inp-user-username">Usuario (ej. david)</label>
+            <input id="inp-user-username" type="text" placeholder="david" required />
+          </div>
+          <div class="field">
+            <label for="inp-user-displayname">Nombre visible</label>
+            <input id="inp-user-displayname" type="text" placeholder="David Bonilla" required />
+          </div>
+          <div class="field">
+            <label for="inp-user-role">Perfil y alcance</label>
+            <select id="inp-user-role">
+              <option value="farm_partner">Dueño Avícola · Granja La Alejandra (Negocio Completo)</option>
+              <option value="owner">Administrador App y Desarrollo (+ Planta Reservada)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="inp-user-pin">Nuevo PIN (opcional al editar)</label>
+            <input id="inp-user-pin" type="password" inputmode="numeric" placeholder="Dejar vacío para conservar" />
+          </div>
+          <button type="submit" class="btn-primary" style="grid-column: 1 / -1;">Guardar / Actualizar Usuario</button>
+        </form>
+        <div id="users-list-admin" style="margin-top:10px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/shared/openai-models-config.js"></script>
+  <script src="/shared/causal-twin-engine.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "id_propuesta": "E05_tamizado_neumatico_fpkc",
+  "agente_id": "E05",
+  "titulo": "Tamizado y clasificacion neumatica post-FES de FPKC (78% fino avicola / 22% grueso rumiantes-caldera)",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc",
+      "permitir": true,
+      "precio": 801,
+      "max_F1": 0.08,
+      "max_F2": 0.12,
+      "max_permitido_F1": 0.08,
+      "max_permitido_F2": 0.12,
+      "nutrientes": {
+        "EM": 2250, "PC": 25.8, "EE": 9.0, "FC": 5.8, "Ca": 0.28, "Pd": 0.35, "Na": 0.03, "Cl": 0.06, "K": 0.77, "Lin": 0.41,
+        "Lys": 0.51, "Met": 0.34, "MC": 0.61, "Trp": 0.17, "Thr": 0.56, "Val": 0.87, "Ile": 0.65, "Arg": 1.75, "Col": 1200
+      }
+    }
+  ],
+  "capex_adicional_cop": 22000000,
+  "supuesto_clave_a_validar": "Tamizado doble malla + ciclon separa 22% grueso lignificado (FC 34%, credito $250/kg), concentrando 78% fino a FC 5.8%, PC 25.8% y EM 2250 kcal/kg"
+}

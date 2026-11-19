@@ -1,0 +1,46 @@
+{
+  "_nota": "Supuestos financieros y zootécnicos AUDITADOS (consumo real Ross d21-42, empaque/energía/flete Cúcuta, IVA Art. 468-1 E.T. 5% alimento / 19% equipos, EPP/molinero y cartera).",
+  "mercado": {
+    "precio_comercial_bulto40": 115000,
+    "precio_venta_bulto40": 98000,
+    "penalizacion_conversion_harina_pct": 6.5,
+    "kg_bulto": 40
+  },
+  "pollo": {
+    "aves_por_lote": 500,
+    "mortalidad_pct_d21_42": 2.5,
+    "consumo_F1_kg_ave": 0.95,
+    "consumo_F2_kg_ave": 2.50,
+    "ganancia_peso_d21_42_kg": 1.76
+  },
+  "costos_variables_cop_kg": {
+    "empaque": 45,
+    "energia_molienda_mezcla": 40,
+    "merma_pct_materias_primas": 1.0,
+    "flete_distribucion": 85,
+    "comision_ventas_pct": 2.0
+  },
+  "costos_fijos_mensuales": {
+    "personal_operativo_3_y_molinero": 10000000,
+    "epp_y_dotacion": 300000,
+    "asesor_tecnico_MV_Zoot": 2500000,
+    "administracion_contabilidad": 1800000,
+    "arriendo_bodega": 3000000,
+    "servicios_publicos_fijos": 800000,
+    "laboratorio_analisis": 900000,
+    "mantenimiento": 500000,
+    "seguros_otros": 600000
+  },
+  "impuestos": {
+    "iva_alimento_pct": 5,
+    "iva_equipos_pct": 19
+  },
+  "inversion": {
+    "equipos_fase1": 180000000,
+    "adecuaciones_locativas": 60000000,
+    "registro_y_legal": 10000000,
+    "vida_util_meses": 120,
+    "capital_trabajo_meses_inventario": 1.0,
+    "dias_cartera": 20
+  }
+}

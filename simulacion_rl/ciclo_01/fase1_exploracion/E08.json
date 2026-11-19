@@ -1,0 +1,13 @@
+{
+  "id_propuesta": "E08_betaina_anhidra_96",
+  "agente_id": "E08",
+  "titulo": "Betaína anhidra 96% (reemplazo colina + Cl + ahorro bicarbonato/Met en clima cálido)",
+  "nuevos_ingredientes": [
+    {
+      "id": "betaina", "nombre": "Betaína anhidra 96 % (0 % Cl)", "precio": 12000,
+      "min": 0, "max": 0.0008, "max_F1": 0.0008, "max_F2": 0.0008,
+      "EM": 0, "PC": 71.8, "Cl": 0, "Met": 50.0, "MC": 50.0, "Col": 853600
+    }
+  ],
+  "supuesto_clave_a_validar": "Precio betaína anhidra 96% <= 12.000 COP/kg; equivalencia conservadora 0,854 kg colina + 0,50 kg DL-Met/kg (tope 0,8 kg/t) y 0% Cl en Cúcuta."
+}

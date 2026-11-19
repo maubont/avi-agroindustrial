@@ -1,0 +1,59 @@
+{
+  "id": "/",
+  "name": "Avi · Granja La Alejandra",
+  "short_name": "Avi Alejandra",
+  "description": "Copiloto de ingeniería industrial, Cuadro de Mando Integral y gemelo digital para Granja La Alejandra (El Zulia).",
+  "lang": "es-CO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#090b10",
+  "background_color": "#090b10",
+  "icons": [
+    {
+      "src": "/icons/avi-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/avi-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/avi-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/avi-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/avi-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Hablar con Avi",
+      "short_name": "Voz Avi",
+      "url": "/?accion=voz",
+      "icons": [{ "src": "/icons/avi-icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Bitácora de Campo",
+      "short_name": "Bitácora",
+      "url": "/#bitacora_pesajes",
+      "icons": [{ "src": "/icons/avi-icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

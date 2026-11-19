@@ -1,0 +1,9 @@
+{
+  "id_propuesta": "E07_lisolecitina_palma_fluidez",
+  "agente_id": "E07",
+  "titulo": "Emulsificante lisolecitina (750 g/t) + digestibilidad micelar palma 8.300 kcal/kg + tope fluidez 3,5%/4,0%",
+  "supuesto_clave_a_validar": "La lisolecitina a 750 g/t ($22.000/kg) eleva la EM efectiva del aceite crudo de palma de 7.600 a 8.300 kcal/kg y aporta +45 kcal/kg sobre la fraccion lipidica/proteica basal (matriz 60.000 kcal/kg), manteniendo conversion sin apelmazamiento en tolva.",
+  "nuevos_ingredientes": [{ "id": "lisolecitina", "nombre": "Emulsificante lisolecitina bovina-soya (750 g/t)", "precio": 22000, "min": 0.00075, "max": 0.00075, "max_F1": 0.00075, "max_F2": 0.00075, "EM": 60000 }],
+  "cambios_ingredientes": [{ "id": "aceite", "max_F1": 0.035, "max_F2": 0.040, "nutrientes": { "EM": 8300 } }],
+  "cambios_fijos_kg_t": { "lisolecitina": 0.75 }
+}

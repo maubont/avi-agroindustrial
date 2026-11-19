@@ -1,0 +1,11 @@
+{
+  "_nota": "Escenarios auditados de línea base real (con secuestrante, antioxidante, fitasa y tolerancia fisiológica completa).",
+  "escenarios": [
+    { "id": "audit_base", "nombre": "Auditado Base (Sin fitasa, Ross + DEB/Cl real)",
+      "fijos": { "secuest": 1.0, "antiox": 0.125 }, "permitir": ["val"] },
+    { "id": "audit_fitasa", "nombre": "Auditado Fitasa (500 FTU/kg, Ross + DEB/Cl real)",
+      "fijos": { "secuest": 1.0, "antiox": 0.125, "fitasa": 0.1 }, "permitir": ["val"] },
+    { "id": "audit_fpkc", "nombre": "Auditado Fitasa + FPKC habilitado ($650/kg)",
+      "fijos": { "secuest": 1.0, "antiox": 0.125, "fitasa": 0.1 }, "permitir": ["val", "fpkc"] }
+  ]
+}

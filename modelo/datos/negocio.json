@@ -1,0 +1,39 @@
+{
+  "_nota": "TODOS los valores son supuestos de planeación (COP). Reemplazar por cotizaciones reales. Celdas amarillas en el Excel.",
+  "mercado": {
+    "precio_comercial_bulto40": 115000,
+    "precio_venta_bulto40": 98000,
+    "penalizacion_conversion_harina_pct": 5,
+    "kg_bulto": 40
+  },
+  "pollo": {
+    "aves_por_lote": 500,
+    "mortalidad_pct_d21_42": 2,
+    "consumo_F1_kg_ave": 0.76,
+    "consumo_F2_kg_ave": 2.28
+  },
+  "costos_variables_cop_kg": {
+    "empaque": 30,
+    "energia_molienda_mezcla": 25,
+    "merma_pct_materias_primas": 1,
+    "flete_distribucion": 60,
+    "comision_ventas_pct": 2
+  },
+  "costos_fijos_mensuales": {
+    "personal_operativo_3": 8400000,
+    "asesor_tecnico_MV_Zoot": 2500000,
+    "administracion_contabilidad": 1800000,
+    "arriendo_bodega": 3000000,
+    "servicios_publicos_fijos": 800000,
+    "laboratorio_analisis": 900000,
+    "mantenimiento": 500000,
+    "seguros_otros": 600000
+  },
+  "inversion": {
+    "equipos_fase1": 180000000,
+    "adecuaciones_locativas": 60000000,
+    "registro_y_legal": 10000000,
+    "vida_util_meses": 120,
+    "capital_trabajo_meses_inventario": 1
+  }
+}

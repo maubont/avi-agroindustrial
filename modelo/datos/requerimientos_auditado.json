@@ -1,0 +1,21 @@
+{
+  "_fuente": "Aviagen Ross 308 (2022 Tabla 2 mixtos) + restricciones fisiológicas y de planta en harina (FC máx, EE máx, DEB 220-260 mEq/kg, Ca:Pd 1,75-2,10).",
+  "dietas": [
+    {
+      "id": "F1",
+      "nombre": "F1 Crecimiento (Ross 11-24 d; uso propuesto d21-28)",
+      "deb_min": 220, "deb_max": 260, "ca_pd_min": 1.75, "ca_pd_max": 2.10,
+      "min": { "EM": 3050, "PC": 20.0, "Lys": 1.18, "MC": 0.92, "Met": 0.51, "Thr": 0.79, "Val": 0.91, "Ile": 0.80, "Arg": 1.27, "Trp": 0.19,
+               "Ca": 0.75, "Pd": 0.42, "Na": 0.18, "Cl": 0.18, "K": 0.60, "Lin": 1.20, "Col": 1600 },
+      "max": { "PC": 23.0, "EE": 8.0, "FC": 4.5, "Ca": 0.80, "Pd": 0.50, "Na": 0.23, "Cl": 0.23, "K": 0.90 }
+    },
+    {
+      "id": "F2",
+      "nombre": "F2 Finalizador (Ross 25-39 d; uso propuesto d29-sacrificio)",
+      "deb_min": 220, "deb_max": 260, "ca_pd_min": 1.75, "ca_pd_max": 2.10,
+      "min": { "EM": 3100, "PC": 18.5, "Lys": 1.08, "MC": 0.86, "Met": 0.48, "Thr": 0.72, "Val": 0.84, "Ile": 0.75, "Arg": 1.17, "Trp": 0.17,
+               "Ca": 0.65, "Pd": 0.36, "Na": 0.18, "Cl": 0.18, "K": 0.60, "Lin": 1.00, "Col": 1500 },
+      "max": { "PC": 22.0, "EE": 8.5, "FC": 5.0, "Ca": 0.70, "Pd": 0.44, "Na": 0.23, "Cl": 0.23, "K": 0.90 }
+    }
+  ]
+}

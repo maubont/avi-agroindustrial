@@ -1,0 +1,12 @@
+{
+  "id_propuesta": "E15_biochar_cuesco_03pct",
+  "agente_id": "E15",
+  "titulo": "Biochar fino de cuesco (0,3%) + reduccion 80% secuestrante comercial y mejora de cama/FCR",
+  "nuevos_ingredientes": [
+    { "id": "biochar", "nombre": "Biochar de cuesco de palma fino grado feed (<200 um)", "precio": 1000, "min": 0, "max": 0.003, "max_F1": 0.003, "max_F2": 0.003, "EM": 0, "PC": 0, "EE": 0, "FC": 0, "Ca": 0.1, "Pd": 0, "Na": 0, "Cl": 0, "K": 0.3 }
+  ],
+  "cambios_fijos_kg_t": { "secuest": 0.2, "biochar": 3.0 },
+  "cambios_negocio": { "penalizacion_conversion_harina_pct": 5.7 },
+  "capex_adicional_cop": 0,
+  "supuesto_clave_a_validar": "Dosis estricta 3 kg/t de biochar pirolitico (<200 um, libre HAPs, no activado con vapor) + 0,2 kg/t secuestrante anti-Fusarium logra -0,8 pp en penalizacion de conversion por cama seca sin adsorber vitaminas ni coccidiostatos."
+}

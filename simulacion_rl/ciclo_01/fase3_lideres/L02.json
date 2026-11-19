@@ -1,0 +1,23 @@
+{
+  "id_propuesta": "L02_stack_enzimatico_real",
+  "agente_id": "L02",
+  "titulo": "Stack 2 enzimas sin doble conteo: Fitasa 1.500 FTU (Pd seguro 0,13%) + Multi-NSP 1:10 (60% marginal) + fluidez harina",
+  "supuesto_clave_a_validar": "Validar con CoA ICA de FPKC (aflatoxina <20 ppb, 0 esporas viables), cenizas de tibia d35 (>=52% con Pd +0,13%) y pre-dilución 1:10 (CV <5%) con bodega climatizada (<=23 C) que el stack dual supera en Reward neto al stack de 3 enzimas sin doble conteo.",
+  "nuevos_ingredientes": [
+    {
+      "id": "enz_nsp_predil", "nombre": "Coctel multi-NSP con mananasa pre-diluido 1:10 (300 g/t enzima + 2,7 kg/t CaCO3)",
+      "precio": 8200, "min": 0, "max": 0.003, "max_F1": 0.003, "max_F2": 0.003,
+      "EM": 8000, "Ca": 34.2, "Lys": 1.0, "Met": 0.2, "MC": 0.6, "Thr": 0.8, "Trp": 0.2, "Val": 0.8, "Ile": 0.6, "Arg": 1.0
+    }
+  ],
+  "cambios_ingredientes": [
+    {
+      "id": "fitasa", "precio": 58000, "max": 0.0003, "max_F1": 0.0003, "max_F2": 0.0003,
+      "nutrientes": { "EM": 150000, "Ca": 366.667, "Pd": 433.333, "Na": 50.0, "Lys": 66.667, "Met": 23.333, "MC": 50.0, "Thr": 60.0, "Trp": 16.667, "Val": 50.0, "Ile": 46.667, "Arg": 66.667 }
+    },
+    { "id": "fpkc", "permitir": true, "max": 0.10, "max_F1": 0.05, "max_F2": 0.10, "max_permitido_F1": 0.05, "max_permitido_F2": 0.10 },
+    { "id": "aceite", "max": 0.04, "max_F1": 0.035, "max_F2": 0.04 }
+  ],
+  "cambios_fijos_kg_t": { "fitasa": 0.3, "enz_nsp_predil": 3.0 },
+  "capex_adicional_cop": 3500000
+}

@@ -1,0 +1,62 @@
+{
+  "id": "L10_estrategia_dual_multiespecie",
+  "id_propuesta": "L10_estrategia_dual_multiespecie",
+  "agente_id": "L10",
+  "titulo": "Estrategia Dual Multi-Especie: Tamizado PRE-FES #14-#16 (78% Fino FES Aviar / 22% Grueso Rumiantes) + Excedente FPKC Ganadero",
+  "resumen": "Tamizado mecanico PRE-FES (malla #14-#16 con bolas anticolmatacion y ciclon) aguas arriba sobre PKC expeller comprado a Oleonorte (proveedor externo comercial, no socio). Separa 78% fraccion fina hacia bio-fermentacion FES (~880-890 kg FPKC fino/t PKC con FC 10.0%, PC 23.5%, EM 2020 kcal/kg puesto planta pollo Cucuta a $620/kg) y 22% rechazo grueso lignificado (FC 31.5-33%) para rumiantes en El Zulia/Puerto Santander ($350-480/kg bruto; $250-350/kg neto ex-works) o caldera ($250/kg). El excedente de FPKC no absorbido por el techo de aceite en pollo (6.1/11.4 kg/t) se comercializa en ganaderia lechera/ceba ($950-1200/kg) y cerda gestante, manteniendo la planta avicola de Cucuta 100% mono-especie bajo Res. ICA 061252/2020 y normas EEB.",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc",
+      "permitir": true,
+      "precio": 620,
+      "max_F1": 0.06,
+      "max_F2": 0.12,
+      "max_permitido_F1": 0.06,
+      "max_permitido_F2": 0.12,
+      "nutrientes": {
+        "EM": 2020,
+        "PC": 23.5,
+        "EE": 8.2,
+        "FC": 10.0,
+        "Ca": 0.28,
+        "Pd": 0.34,
+        "Na": 0.03,
+        "Cl": 0.06,
+        "K": 0.75,
+        "Lin": 0.42,
+        "Lys": 0.49,
+        "Met": 0.32,
+        "MC": 0.58,
+        "Trp": 0.16,
+        "Thr": 0.52,
+        "Val": 0.80,
+        "Ile": 0.60,
+        "Arg": 1.58,
+        "Col": 1150
+      }
+    }
+  ],
+  "cambios_escenario": {
+    "permitir": ["val", "fpkc"],
+    "fijos_kg_t": {
+      "secuest": 1.0,
+      "antiox": 0.2,
+      "fitasa": 0.1
+    }
+  },
+  "cambios_fijos_kg_t": {
+    "antiox": 0.2
+  },
+  "cambios_negocio": {
+    "costos_fijos_extra_mes": 450000
+  },
+  "capex_adicional_cop": 25000000,
+  "notas_auditoria": [
+    "Oleonorte / Carlos Carrascal es estrictamente proveedor externo spot/contrato de PKC expeller (sin equity ni sociedad).",
+    "Segregacion ICA (Res. 061252/2020, Res. 991/2001 y 1414/2006 EEB): el tamizado PRE-FES y ensacado de subproducto rumiante (40 kg) ocurre aguas arriba en modulo FES, manteniendo Cucuta 100% mono-especie aviar (evita +$111M CAPEX de doble linea en planta de pollo, arrastre de coccidiostatos y perdida de 12-18% OEE por flushing).",
+    "Sin subsidio cruzado ficticio: la fraccion gruesa (22% con FC >31%) se valora conservadoramente a $250-350/kg neto ex-works (piso caldera $250/kg), NO a $950-1180/kg (precio que aplica solo al FPKC integral/comercial en ganaderia). Prohibicion absoluta (0%) de fraccion gruesa en porcinos.",
+    "Control de liquidez y micotoxinas: venta rumiante de contado o <=8 dias (evita descalce frente a pago 10-15d a Oleonorte), rechazo de PKC >20 ppb aflatoxina B1 (limite leche M1 0.5 ppb) y 200 ppm de antioxidante (antiox 0.2 kg/t).",
+    "Validacion simulador_rl.js (evaluarPropuestaRL): factible=true, reward=38.8, mp_ponderado_cop_kg=1920.3, ahorro_mp_cop_kg=0.7, costo_fab_cop_kg=2024.5, costo_kg_vivo_cop=4226, punto_equilibrio_t_mes=79.1, sombra_fpkc_f2_cop_kg=821.2 (+289.3), inclusion_fpkc_kg_t='6.1 / 11.4', mc_cumpl_f1_pct=34.2, mc_cumpl_f2_pct=34.0."
+  ],
+  "supuesto_clave_a_validar": "Tamizado PRE-FES #14-#16 aguas arriba (CAPEX $25M, OPEX $450k/mes QC/mant.) entrega FPKC fino a $620/kg (EM 2020, PC 23.5%, FC 10.0%) con antiox 200 ppm; rechazo grueso 22% a $250-350/kg neto rumiantes/caldera y excedente FPKC vendido en ganaderia El Zulia/Puerto Santander a $950-1200/kg."
+}

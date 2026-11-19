@@ -1,0 +1,15 @@
+{
+  "id_propuesta": "R06_fes_glicerina_segura",
+  "agente_id": "R06",
+  "titulo": "FES Torta Palmiste + POME + 3% Glicerina Técnica Limpia (fluidez y aw<=0.60, base 12% hum)",
+  "supuesto_clave_a_validar": "3% MS glicerina técnica (>=95%, metanol <0.05%) permite secado homogéneo <=12% hum, aw<=0.60, aflatoxinas <10 ppb y fluidez en tolva con PC verdadera 19.6% y EM 1960 kcal/kg",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc", "precio": 695, "max_F1": 0.05, "max_F2": 0.08, "max_permitido_F1": 0.05, "max_permitido_F2": 0.08, "permitir": true,
+      "nutrientes": {
+        "EM": 1960, "PC": 19.6, "EE": 8.5, "FC": 10.6, "Ca": 0.29, "Pd": 0.38, "Na": 0.04, "Cl": 0.07, "K": 0.70, "Lin": 0.40,
+        "Lys": 0.48, "Met": 0.30, "MC": 0.53, "Thr": 0.49, "Trp": 0.14, "Val": 0.74, "Ile": 0.55, "Arg": 1.38, "Col": 1050
+      }
+    }
+  ]
+}

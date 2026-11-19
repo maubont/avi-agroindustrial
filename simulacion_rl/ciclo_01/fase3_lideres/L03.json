@@ -1,0 +1,65 @@
+{
+  "id_propuesta": "L03_cadena_fpkc_tamizado_nsp",
+  "agente_id": "L03",
+  "titulo": "Cadena Integrada FPKC Biosegura: Tamizado PRE-FES #14-#16 + Tricanter/Caldera ($510/kg F2) + Multi-NSP 1:10 sin doble conteo + Control ICA",
+  "nuevos_ingredientes": [
+    {
+      "id": "enz_nsp_predil",
+      "nombre": "Coctel multi-NSP pre-diluido 1:10 (300 g/t enzima + 2.7 kg/t CaCO3)",
+      "precio": 5850,
+      "min": 0,
+      "max": 0.004,
+      "max_F1": 0.004,
+      "max_F2": 0.004,
+      "EM": 13333,
+      "Ca": 34.2,
+      "Lys": 1.67,
+      "MC": 1.0,
+      "Thr": 1.33,
+      "Ile": 1.0,
+      "Val": 1.33
+    }
+  ],
+  "cambios_fijos_kg_t": {
+    "enz_nsp_predil": 3.0,
+    "antiox": 0.2,
+    "secuest": 1.5
+  },
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc",
+      "permitir": true,
+      "precio": 510,
+      "max_F1": 0.06,
+      "max_F2": 0.12,
+      "max_permitido_F1": 0.06,
+      "max_permitido_F2": 0.12,
+      "nutrientes": {
+        "EM": 2150,
+        "PC": 24.5,
+        "EE": 8.0,
+        "FC": 5.6,
+        "Ca": 0.30,
+        "Pd": 0.34,
+        "Na": 0.03,
+        "Cl": 0.06,
+        "K": 0.75,
+        "Lin": 0.50,
+        "Lys": 0.49,
+        "Met": 0.32,
+        "MC": 0.58,
+        "Trp": 0.16,
+        "Thr": 0.52,
+        "Val": 0.82,
+        "Ile": 0.62,
+        "Arg": 1.60,
+        "Col": 1200
+      }
+    }
+  ],
+  "cambios_negocio": {
+    "costos_fijos_extra_mes": 600000
+  },
+  "capex_adicional_cop": 46000000,
+  "supuesto_clave_a_validar": "Matriz FPKC PRE-FES (#14-#16 + ciclon) + Tricanter/caldera sin doble conteo enzimatico (EM 2150, PC 24.5%, EE<=8.0%, FC 5.6%), cepa certificada R. oligosporus/A. oryzae (sin secado solar ni pulidura cruda), antiox 200 ppm + secuest 1.5 kg/t + CAPEX $46M ($32M tamiz/ciclon + $14M lector micotoxinas ICA) y +$600k/mes mant./lab. Verificado en simulador_rl.js: F2 ($510/kg) logra Reward 150.6, Sombra $934.8/kg, inclusion 5.15%/5.95% y PE 71.7 t/mes (si Coopar valida EM 2320 / EE 8.8%, sube a Sombra $1104.1/kg e inclusion 6.0%/7.26%)."
+}

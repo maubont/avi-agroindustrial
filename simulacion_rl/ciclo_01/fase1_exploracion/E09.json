@@ -1,0 +1,14 @@
+{
+  "id_propuesta": "E09_proteinas_regionales",
+  "agente_id": "E09",
+  "titulo": "Alternativas proteicas regionales/nacionales puestas en Cúcuta (Soya extruida, Harina vísceras/carne-hueso, DDGS, Canola, Gluten 60%)",
+  "supuesto_clave_a_validar": "Precios CIF Barranquilla/Bucaramanga + flete Cúcuta, actividad ureásica/micotoxinas por lote y registro ICA Res. 61252/2020 para harinas animales",
+  "nuevos_ingredientes": [
+    { "id": "ddgs", "nombre": "DDGS de maíz importado (27% PC)", "precio": 1450, "min": 0, "max": 0.10, "max_F1": 0.06, "max_F2": 0.10, "EM": 2450, "PC": 27.0, "EE": 8.8, "FC": 7.5, "Ca": 0.05, "Pd": 0.42, "Na": 0.15, "Cl": 0.15, "K": 0.88, "Lin": 3.80, "Lys": 0.56, "Met": 0.43, "MC": 0.83, "Thr": 0.75, "Trp": 0.17, "Val": 1.03, "Ile": 0.78, "Arg": 0.90, "Col": 2400 },
+    { "id": "canola", "nombre": "Torta de canola importada (36% PC)", "precio": 1880, "min": 0, "max": 0.10, "max_F1": 0.06, "max_F2": 0.10, "EM": 1950, "PC": 36.0, "EE": 2.8, "FC": 11.5, "Ca": 0.65, "Pd": 0.35, "Na": 0.05, "Cl": 0.07, "K": 1.25, "Lin": 0.65, "Lys": 1.65, "Met": 0.61, "MC": 1.26, "Thr": 1.24, "Trp": 0.37, "Val": 1.46, "Ile": 1.18, "Arg": 1.82, "Col": 5800 },
+    { "id": "soya_ff", "nombre": "Soya integral extruida (Full-Fat 36% PC)", "precio": 2650, "min": 0, "max": 0.12, "max_F1": 0.10, "max_F2": 0.12, "EM": 3450, "PC": 36.0, "EE": 17.5, "FC": 5.2, "Ca": 0.25, "Pd": 0.18, "Na": 0.02, "Cl": 0.04, "K": 1.75, "Lin": 8.80, "Lys": 1.98, "Met": 0.45, "MC": 0.90, "Thr": 1.20, "Trp": 0.43, "Val": 1.52, "Ile": 1.45, "Arg": 2.40, "Col": 2150 },
+    { "id": "gluten60", "nombre": "Gluten de maíz 60% PC", "precio": 3650, "min": 0, "max": 0.06, "max_F1": 0.05, "max_F2": 0.06, "EM": 3650, "PC": 60.0, "EE": 2.5, "FC": 1.5, "Ca": 0.04, "Pd": 0.16, "Na": 0.04, "Cl": 0.06, "K": 0.22, "Lin": 1.10, "Lys": 0.90, "Met": 1.36, "MC": 2.30, "Thr": 1.82, "Trp": 0.27, "Val": 2.50, "Ile": 2.20, "Arg": 1.75, "Col": 350 },
+    { "id": "h_visceras", "nombre": "Harina de vísceras avícola 60% PC (grado avícola ICA)", "precio": 2900, "min": 0, "max": 0.05, "max_F1": 0.04, "max_F2": 0.05, "EM": 2850, "PC": 60.0, "EE": 11.5, "FC": 1.5, "Ca": 3.60, "Pd": 1.75, "Na": 0.35, "Cl": 0.45, "K": 0.55, "Lin": 1.80, "Lys": 2.85, "Met": 0.92, "MC": 1.44, "Thr": 1.85, "Trp": 0.46, "Val": 2.40, "Ile": 1.90, "Arg": 3.45, "Col": 5200 },
+    { "id": "hch", "nombre": "Harina de carne y hueso porcina/bovina 45% PC", "precio": 2600, "min": 0, "max": 0.04, "max_F1": 0.03, "max_F2": 0.04, "EM": 2150, "PC": 45.0, "EE": 9.5, "FC": 2.0, "Ca": 10.50, "Pd": 4.80, "Na": 0.65, "Cl": 0.70, "K": 0.50, "Lin": 0.35, "Lys": 1.82, "Met": 0.50, "MC": 0.82, "Thr": 1.22, "Trp": 0.23, "Val": 1.62, "Ile": 1.12, "Arg": 2.60, "Col": 1750 }
+  ]
+}

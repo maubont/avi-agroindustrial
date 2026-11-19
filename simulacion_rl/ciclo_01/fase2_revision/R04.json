@@ -1,0 +1,11 @@
+{
+  "id_propuesta": "R04_aa_practicos_colombia",
+  "agente_id": "R04",
+  "titulo": "AA comercialmente prácticos en Cúcuta: L-Lisina Sulfato 70% (0% Cl) + DL-HMTBA-Ca 84% (sin L-Arg ni L-Ile suelta)",
+  "supuesto_clave_a_validar": "L-Lys Sulfato 70% en bulto 25 kg <=4,850 COP/kg (controlando ~6% S / 13 mEq/kg carga ácida si se combina con Na2SO4) y HMTBA-Ca 84% <=11,000 COP/kg; evaluar aparte con casa de premezclas inclusión de L-Ile (150-235 g/t) dentro del premix 3-4 kg/t.",
+  "capex_adicional_cop": 0,
+  "nuevos_ingredientes": [
+    { "id": "lys_sulf", "nombre": "L-Lisina Sulfato 70 % (55 % Lys libre, 0 % Cl, ~6 % S)", "precio": 4850, "min": 0, "max": 0.010, "max_F1": 0.010, "max_F2": 0.010, "EM": 3600, "PC": 72.0, "Cl": 0.0, "Lys": 55.0 },
+    { "id": "hmtba_ca", "nombre": "DL-HMTBA Sal Cálcica 84 % (MHA-Ca polvo, 80 % bioeficacia Met)", "precio": 11000, "min": 0, "max": 0.006, "max_F1": 0.006, "max_F2": 0.006, "EM": 4000, "PC": 0.0, "Ca": 12.0, "Met": 80.0, "MC": 80.0 }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id_propuesta": "L07_quimica_mineral_deb_azufre",
+  "id": "L07_quimica_mineral_deb_azufre",
+  "agente_id": "L07",
+  "titulo": "Ingenieria Quimica Mineral L07: Caliza Cucuta + DCP + L-Lys Sulfato solo F2 + GAA con blindaje metilos/aceite + Betaina F2 (veto Na2SO4)",
+  "resumen": "Elimina Na2SO4 por toxicidad de azufre; restringe L-Lys Sulfato a F2 (<=3.0 kg/t) para mantener S<=0.300%; sustituye MCP por DCP ($3,700/kg) y caliza a $200/kg; valida GAA 600 g/t (PC=0 NNP) con piso de colina (+250 mg/kg) y aceite >=2.0%; habilita Betaina anhidra tactica solo en F2 ($14,500/kg, Met=0). Reward 40.9, ahorro MP $15/kg, vivo -$32/kg, PE 73.2 t/mes, MC F2 37.2%.",
+  "requerimientos_extra": {
+    "F1": { "min": { "Col": 1850 }, "deb_min": 220, "deb_max": 260 },
+    "F2": { "min": { "Col": 1750 }, "deb_min": 220, "deb_max": 260 }
+  },
+  "cambios_ingredientes": [
+    { "id": "caco3", "precio": 200 },
+    { "id": "colina", "min": 0.00040 },
+    { "id": "aceite", "min": 0.020 }
+  ],
+  "nuevos_ingredientes": [
+    {
+      "id": "dcp",
+      "nombre": "Fosfato dicalcico (18.5% Pd, 22% Ca)",
+      "precio": 3700,
+      "min": 0,
+      "max": 0.03,
+      "max_F1": 0.03,
+      "max_F2": 0.03,
+      "Ca": 22.0,
+      "Pd": 18.5
+    },
+    {
+      "id": "lys_sulf",
+      "nombre": "L-Lisina Sulfato 70% (55% Lys libre, 0% Cl, 7.25-8.0% S) - solo F2",
+      "precio": 4850,
+      "min": 0,
+      "max": 0.003,
+      "max_F1": 0,
+      "max_permitido_F1": 0,
+      "max_F2": 0.003,
+      "max_permitido_F2": 0.003,
+      "EM": 3600,
+      "PC": 72.0,
+      "Cl": 0.0,
+      "Lys": 55.0
+    },
+    {
+      "id": "gaa",
+      "nombre": "Acido guanidinoacetico 96% (CreAMINO, pre-mezcla, PC=0 NNP)",
+      "precio": 42000,
+      "min": 0,
+      "max": 0.0006,
+      "max_F1": 0.0006,
+      "max_F2": 0.0006,
+      "EM": 83333,
+      "PC": 0.0,
+      "Arg": 77.0
+    },
+    {
+      "id": "betaina",
+      "nombre": "Betaina anhidra 96% (0% Cl, osmoprotector calor Cucuta, solo F2, sin credito Met)",
+      "precio": 14500,
+      "min": 0,
+      "max": 0.0005,
+      "max_F1": 0,
+      "max_permitido_F1": 0,
+      "max_F2": 0.0005,
+      "max_permitido_F2": 0.0005,
+      "EM": 0,
+      "PC": 0.0,
+      "Cl": 0.0,
+      "Met": 0.0,
+      "MC": 0.0,
+      "Col": 853600
+    }
+  ],
+  "cambios_escenario": {},
+  "cambios_negocio": {},
+  "capex_adicional_cop": 0,
+  "supuesto_clave_a_validar": "CoA de L-Lys Sulfato con S <=8% (uso exclusivo F2 <=3.0 kg/t), veto a Na2SO4, CoA DCP 18.5% Pd / 22% Ca a $3,700/kg, caliza local $200/kg, GAA $42,000/kg en nucleo con blindaje de colina (+250 mg/kg) y piso aceite 2.0%, Betaina 96% <=$14,500-$15,100/kg solo F2.",
+  "notas_auditoria": [
+    "Veto estricto a Na2SO4 (22.57% S): combinarlo con L-Lys Sulfato eleva el Azufre total a 0.35-0.42%, causando diarrea osmotica, cama humeda en Cucuta (30-35 C), pododermatitis, discondroplasia tibial y antagonismo Cu/Se.",
+    "L-Lys Sulfato 70% bloqueado en F1 (max_permitido_F1: 0) y acotado a <=3.0 kg/t en F2 para garantizar S total <=0.300% (F1: 0.2928%, F2: 0.3000% asumiendo 8% S; exigir CoA <=8% S por lote).",
+    "GAA 600 g/t auditado con PC=0 (NNP), piso de aceite >=2.0% para control de incremento calorico/polvosidad en harina y +250 mg/kg de Colina minima (1,850 F1 / 1,750 F2) para suplir los 5.12 mol/t de SAM requeridos en sintesis de creatina.",
+    "Betaina anhidra 96% exclusiva en F2 (Cl=0%, Met=0, MC=0, Col=853,600 mg/kg) con piso irremplazable de Cloruro de Colina 60% >=0.40 kg/t; precio sombra LP $15,078-$15,100/kg.",
+    "simulador_rl.js ignora cambios_escenario y lee id_propuesta + nuevos_ingredientes + cambios_ingredientes + requerimientos_extra; no se modifica penalizacion_conversion_harina_pct ni se traslapa con enzimas L02.",
+    "Compatible en integracion con L02 (Fitasa 1500 + Multi-NSP) y FPKC 5% F1 / 9% F2 manteniendo S 0.2921% F1 / 0.3024% F2 (0.298% si lys_sulf <=2.5 kg/t), DEB 225.1-238.2 mEq/kg y Ca:Pd 1.786-1.806."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id_propuesta": "E17_transicion_fases_ross_2022",
+  "agente_id": "E17",
+  "titulo": "Ajuste de transición F1 a d24 (0,422 kg F1 / 3,028 kg F2) y optimización fases Ross 2022",
+  "supuesto_clave_a_validar": "Cambiar F1->F2 en d24 (0.422 vs 0.950 kg/ave) ahorra ~23 COP/ave (~13 COP/kg vivo) sin merma en ganancia d21-42; agregar F3 (d40-42) ahorra hasta 43 COP/ave.",
+  "cambios_negocio": {
+    "consumo_F1_kg_ave": 0.422,
+    "consumo_F2_kg_ave": 3.028
+  }
+}

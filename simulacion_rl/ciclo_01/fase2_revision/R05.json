@@ -1,0 +1,17 @@
+{
+  "id_propuesta": "R05_tamizado_prefes_vs_post",
+  "agente_id": "R05",
+  "titulo": "Clasificacion PRE-FES malla #14-#16 (1.2mm) + ciclon neumatico vs post-FES",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc", "permitir": true, "precio": 747, "max_F1": 0.08, "max_F2": 0.12, "max_permitido_F1": 0.08, "max_permitido_F2": 0.12,
+      "nutrientes": {
+        "EM": 2290, "PC": 26.8, "EE": 8.6, "FC": 5.4, "Ca": 0.28, "Pd": 0.36, "Na": 0.03, "Cl": 0.06, "K": 0.79, "Lin": 0.42,
+        "Lys": 0.53, "Met": 0.35, "MC": 0.63, "Trp": 0.18, "Thr": 0.58, "Val": 0.90, "Ile": 0.67, "Arg": 1.82, "Col": 1240
+      }
+    }
+  ],
+  "cambios_negocio": { "costos_fijos_extra_mes": 250000 },
+  "capex_adicional_cop": 32000000,
+  "supuesto_clave_a_validar": "Tamizado PRE-FES malla #14-#16 + ciclon separa 22% cuesco antes de fermentar: evita cegado por grasa a 32C, ahorra 22% costo FES/secado y evita perdida de micoproteina"
+}

@@ -1,0 +1,16 @@
+{
+  "id_propuesta": "R19_auditoria_bioseguridad_hch",
+  "agente_id": "R19",
+  "titulo": "Rechazo HCH bovina por riesgo EEB/bioseguridad; alternativa acotada a harina de vísceras de ave con control BPM",
+  "supuesto_clave_a_validar": "Exclusión de proteína de rumiantes protege línea multipropósito FPKC bovino; harina de vísceras de ave certificada libre de Salmonella y aminas biógenas <= 3.900 COP/kg en Cúcuta.",
+  "nuevos_ingredientes": [
+    {
+      "id": "h_visceras_ave", "nombre": "Harina de vísceras de ave 60% PC (certificada BPM, puesto Cúcuta)",
+      "precio": 3900, "min": 0, "max": 0.04, "max_F1": 0.03, "max_F2": 0.04,
+      "EM": 3050, "PC": 60.0, "EE": 13.0, "FC": 1.5, "Ca": 4.2, "Pd": 2.1, "Na": 0.40, "Cl": 0.45, "K": 0.65, "Lin": 2.20,
+      "Lys": 3.10, "Met": 0.98, "MC": 1.55, "Thr": 2.05, "Trp": 0.48, "Val": 2.50, "Ile": 2.05, "Arg": 3.70, "Col": 3800
+    }
+  ],
+  "cambios_negocio": { "costos_fijos_extra_mes": 450000 },
+  "capex_adicional_cop": 4000000
+}

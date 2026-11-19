@@ -1,0 +1,10 @@
+{
+  "id_propuesta": "R15_biochar_descarte_o_cama",
+  "agente_id": "R15",
+  "titulo": "Descarte de biochar oral en harina; redireccion a enmienda en cama de cascarilla",
+  "nuevos_ingredientes": [],
+  "cambios_fijos_kg_t": { "secuest": 1.0 },
+  "cambios_negocio": { "penalizacion_conversion_harina_pct": 6.5 },
+  "capex_adicional_cop": 0,
+  "supuesto_clave_a_validar": "Validar en galpon reduccion de NH3 y pododermatitis aplicando biochar de cuesco en cama de cascarilla sin incorporarlo al alimento."
+}

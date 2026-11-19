@@ -1,0 +1,13 @@
+{
+  "id_propuesta": "E04_aa_4gen_ile_arg_lyssulf_hmtba",
+  "agente_id": "E04",
+  "titulo": "Portafolio AA 4a Generación (L-Ile 98.5%, L-Arg 98.5%, L-Lys Sulfato 70% sin Cl y DL-HMTBA-Ca 84%)",
+  "supuesto_clave_a_validar": "Cotización firme en Cúcuta/Colombia de L-Isoleucina 98.5% (<=38,000 COP/kg), L-Lisina Sulfato 70% (<=4,850 COP/kg, 0% Cl) y bioeficacia de DL-HMTBA-Ca (>=80% eq. Met) sin problemas de fluidez en premezcla.",
+  "capex_adicional_cop": 0,
+  "nuevos_ingredientes": [
+    { "id": "ile", "nombre": "L-Isoleucina 98,5 % (grado alimenticio)", "precio": 38000, "min": 0, "max": 0.005, "max_F1": 0.005, "max_F2": 0.005, "EM": 3800, "PC": 66.7, "Ile": 98.5 },
+    { "id": "arg", "nombre": "L-Arginina 98,5 % (grado alimenticio)", "precio": 32000, "min": 0, "max": 0.005, "max_F1": 0.005, "max_F2": 0.005, "EM": 3400, "PC": 195.0, "Arg": 98.5 },
+    { "id": "lys_sulf", "nombre": "L-Lisina Sulfato 70 % (55 % Lys libre, 0 % Cl)", "precio": 4850, "min": 0, "max": 0.010, "max_F1": 0.010, "max_F2": 0.010, "EM": 3600, "PC": 72.0, "Cl": 0.0, "Lys": 55.0 },
+    { "id": "hmtba_ca", "nombre": "DL-HMTBA Sal Cálcica 84 % (MHA-Ca polvo, 80 % bioeficacia Met)", "precio": 11000, "min": 0, "max": 0.006, "max_F1": 0.006, "max_F2": 0.006, "EM": 4000, "PC": 0.0, "Ca": 12.0, "Met": 80.0, "MC": 80.0 }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "ciclo": 1,
+  "fase_actual": "COMPLETADO_META_SUPERADA",
+  "linea_base_auditada": {
+    "id": "audit_fitasa",
+    "mp_ponderado_cop_kg": 1921.0,
+    "costo_fab_cop_kg": 2025.2,
+    "costo_kg_vivo_cop": 4228,
+    "punto_equilibrio_t_mes": 77.0,
+    "sombra_fpkc_f2_cop_kg": 531.9,
+    "mc_cumpl_f1_pct": 35.4,
+    "mc_cumpl_f2_pct": 35.6
+  },
+  "metas_rl": {
+    "meta_mp_ponderado_cop_kg": 1785.0,
+    "meta_ahorro_min_cop_kg": 136.0,
+    "meta_costo_vivo_cop_kg": 3950,
+    "meta_pe_t_mes": 55.0,
+    "meta_sombra_fpkc_cop_kg": 850.0
+  },
+  "simulacion_2_supervivientes_top": [
+    { "id": "R11_tractomula_nucleo_realista", "R": 173.2, "MP": 1853.1, "PE": 64.1, "Vivo": 4092 },
+    { "id": "R02_fitasa_robusta", "R": 124.0, "MP": 1874.0, "PE": 66.2, "Vivo": 4129 },
+    { "id": "R14_soya_extruida_precio_real", "R": 104.0, "MP": 1890.2, "SombraFPKC": 711.4 },
+    { "id": "R05_tamizado_prefes_vs_post", "R": 93.4, "MP": 1915.7, "SombraFPKC": 1100.5 },
+    { "id": "R01_nsp_ajustado", "R": 70.7, "MP": 1903.0, "SombraFPKC": 677.5 },
+    { "id": "R16_fpkc_integrado_realista", "R": 68.6, "MP": 1918.2, "SombraFPKC": 959.5 },
+    { "id": "R09_proteina_alternativa_depurada", "R": 68.1, "MP": 1895.8 },
+    { "id": "R18_minerales_seguros_gaa_real", "R": 56.4, "MP": 1900.2 },
+    { "id": "R07_lisolecitina_conservadora", "R": 53.1, "MP": 1906.2, "SombraFPKC": 618.9 },
+    { "id": "R20_logistica_hibrida_real", "R": 43.3, "PE": 61.2, "Vivo": 4197 },
+    { "id": "R12_molienda_practica_arranque", "R": 42.6, "Vivo": 4101 },
+    { "id": "R10_energia_regional_realista", "R": 40.9, "MP": 1906.3 }
+  ],
+  "simulacion_3_lideres": {
+    "ganador": "L09_supercombinacion_optima",
+    "reward": 553.2,
+    "mp_ponderado_cop_kg": 1742.5,
+    "ahorro_mp_cop_kg": 178.5,
+    "costo_fab_cop_kg": 1834.8,
+    "costo_kg_vivo_cop": 3733,
+    "ahorro_vivo_cop_kg": 495,
+    "punto_equilibrio_t_mes": 45.2,
+    "sombra_fpkc_f2_cop_kg": 871.6,
+    "mc_cumpl_f1_pct": 43.2,
+    "mc_cumpl_f2_pct": 45.2,
+    "inclusion_fpkc_kg_t": "60.0 / 120.0",
+    "capex_adicional_pre_iva_cop": 92000000,
+    "equivalente_conservador_fases_base": {
+      "consumos_kg_ave": "0.95 / 2.50",
+      "reward": 537.8,
+      "mp_ponderado_cop_kg": 1748.7,
+      "costo_kg_vivo_cop": 3746,
+      "punto_equilibrio_t_mes": 45.8,
+      "sombra_fpkc_f2_cop_kg": 871.6
+    },
+    "variante_arranque_fase1_sin_extractora": {
+      "fpkc_spot_cop_kg": 880,
+      "reward": 473.6,
+      "mp_ponderado_cop_kg": 1776.0,
+      "costo_kg_vivo_cop": 3802,
+      "punto_equilibrio_t_mes": 46.4,
+      "capex_adicional_pre_iva_cop": 46000000
+    },
+    "compuerta_meta": "APROBADA (supera las 4 metas RL y el criterio de robustez Monte Carlo sin activar Ciclo 2)"
+  }
+}

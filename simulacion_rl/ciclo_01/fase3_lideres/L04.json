@@ -1,0 +1,18 @@
+{
+  "id_propuesta": "L04_estrategia_lipidica_optima",
+  "agente_id": "L04",
+  "titulo": "Estrategia Lipídica Óptima: CPO directo Coopar/Tibú ($4.150/kg) + Tope estricto fluidez harina (3,5%/4,0%) + Soya Extruida QA calibrada opcional (EM 3.350) sin doble conteo R07",
+  "supuesto_clave_a_validar": "Compra directa de CPO en IBCs Coopar/Tibú a $4.150/kg puesto planta Cúcuta (rango $4.050-$4.200/kg) con tanque caliente anhidro 45-55 C ya incluido en CAPEX Fase 1; tope duro de aceite líquido libre 3,5% F1 / 4,0% F2 para fluidez en harina; Soya Integral Extruida opcional ($2.600/kg, EM corregida 3.350 kcal/kg, Lin 9,2%, QA ureasa 0,02-0,08 dPH, KOH 78-85%, IT <4 mg/g, PV <5 meq/kg); rechazo de lisolecitina R07 ($26.000/kg) por doble conteo energético y falta de ROI frente a CPO $4.150/kg.",
+  "nuevos_ingredientes": [
+    {
+      "id": "soya_ext", "nombre": "Soya integral extruida QA estricto (Full-Fat Soy 37% PC, 18% EE)",
+      "precio": 2600, "min": 0, "max": 0.2, "max_F1": 0.15, "max_F2": 0.2,
+      "EM": 3350, "PC": 37.0, "EE": 18.0, "FC": 5.0, "Ca": 0.25, "Pd": 0.17, "Na": 0.02, "Cl": 0.04, "K": 1.7, "Lin": 9.2,
+      "Lys": 2.02, "Met": 0.48, "MC": 0.95, "Trp": 0.46, "Thr": 1.25, "Val": 1.59, "Ile": 1.53, "Arg": 2.55, "Col": 2170
+    }
+  ],
+  "cambios_ingredientes": [
+    { "id": "aceite", "precio": 4150, "max": 0.04, "max_F1": 0.035, "max_F2": 0.04 }
+  ],
+  "capex_adicional_cop": 0
+}

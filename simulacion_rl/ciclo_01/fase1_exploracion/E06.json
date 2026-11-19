@@ -1,0 +1,21 @@
+{
+  "id_propuesta": "RL_E06_FES_Glicerina_AltaGrasa_Aniger",
+  "agente_id": "E06",
+  "titulo": "Co-fermentación FES Torta Alta Grasa + POME + Glicerina Cruda (7%) con A. niger no toxigénico y Levadura",
+  "supuesto_clave_a_validar": "Recuperación de N >=94%, aflatoxinas <10 ppb, EM >=2.250 kcal/kg y Lys dig >=0,57% usando 7% MS glicerina cruda feed-grade (<0,1% metanol) y torta expeller alta grasa",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc",
+      "precio": 690,
+      "max_F1": 0.05,
+      "max_F2": 0.10,
+      "max_permitido_F1": 0.05,
+      "max_permitido_F2": 0.10,
+      "permitir": true,
+      "nutrientes": {
+        "EM": 2250, "PC": 20.4, "EE": 10.8, "FC": 9.7, "Ca": 0.30, "Pd": 0.45, "Na": 0.06, "Cl": 0.08, "K": 0.74, "Lin": 0.50,
+        "Lys": 0.57, "Met": 0.32, "MC": 0.57, "Thr": 0.54, "Trp": 0.15, "Val": 0.78, "Ile": 0.58, "Arg": 1.35, "Col": 1100
+      }
+    }
+  ]
+}

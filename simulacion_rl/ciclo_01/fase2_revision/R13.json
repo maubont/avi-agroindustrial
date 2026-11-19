@@ -1,0 +1,9 @@
+{
+  "id_propuesta": "R13_aceite_palma_grado_forrajero",
+  "agente_id": "R13",
+  "titulo": "Aceite crudo de palma grado forrajero / 2da prensa (5-8% AGL) en tanque único con antioxidante reforzado",
+  "supuesto_clave_a_validar": "Descuento local >=12-15% vs CPO ($3.750 vs $4.380/kg) en extractoras de Norte de Santander/Cesar con AGL <=8%, peróxidos <=5 meq/kg, H+I <=1,0% y EM >=7.420 kcal/kg.",
+  "cambios_ingredientes": [{ "id": "aceite", "precio": 3750, "max": 0.045, "max_F1": 0.035, "max_F2": 0.045, "nutrientes": { "EM": 7420, "EE": 98.0, "Lin": 9.5 } }],
+  "cambios_fijos_kg_t": { "antiox": 0.25 },
+  "capex_adicional_cop": 0
+}

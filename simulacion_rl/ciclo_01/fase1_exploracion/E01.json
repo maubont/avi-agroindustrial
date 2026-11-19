@@ -1,0 +1,67 @@
+[
+  {
+    "id_propuesta": "E01_P1_nsp_conservador",
+    "agente_id": "E01",
+    "titulo": "Beta-mananasa + Xilanasa/Glucanasa concentrado (150 g/t, $68.000/kg): matriz conservadora EM y desbloqueo FPKC 7.5%/12.5%",
+    "nuevos_ingredientes": [
+      {
+        "id": "enz_nsp_conc",
+        "nombre": "Complejo Beta-mananasa + Xilanasa/Glucanasa concentrado (150 g/t)",
+        "precio": 68000,
+        "min": 0,
+        "max": 0.0002,
+        "max_F1": 0.0002,
+        "max_F2": 0.0002,
+        "EM": 333333
+      }
+    ],
+    "cambios_fijos_kg_t": { "enz_nsp_conc": 0.15 },
+    "cambios_ingredientes": [
+      {
+        "id": "fpkc",
+        "permitir": true,
+        "max_F1": 0.075,
+        "max_F2": 0.125,
+        "max_permitido_F1": 0.075,
+        "max_permitido_F2": 0.125,
+        "nutrientes": { "EM": 1972, "Lys": 0.445, "Met": 0.295, "MC": 0.53, "Thr": 0.488, "Val": 0.763, "Ile": 0.572, "Arg": 1.537 }
+      }
+    ],
+    "supuesto_clave_a_validar": "Liberacion neta >=50 kcal/kg EM en maiz-soya y +230 kcal/kg EM (+6% dig. AA) en FPKC con Beta-mananasa+Xilanasa sin deterioro fecal hasta 12.5% FPKC en F2"
+  },
+  {
+    "id_propuesta": "E01_P2_nsp_dual_alto_fpkc",
+    "agente_id": "E01",
+    "titulo": "Coctel multi-NSP Beta-mananasa + Xilanasa/Glucanasa (300 g/t, $50.000/kg): matriz EM+AA conservadora y FPKC 8%/15%",
+    "nuevos_ingredientes": [
+      {
+        "id": "enz_nsp_multi",
+        "nombre": "Coctel multi-NSP Beta-mananasa + Xilanasa/Glucanasa (300 g/t)",
+        "precio": 50000,
+        "min": 0,
+        "max": 0.0005,
+        "max_F1": 0.0005,
+        "max_F2": 0.0005,
+        "EM": 200000,
+        "Lys": 40,
+        "MC": 20,
+        "Thr": 30,
+        "Ile": 26.7,
+        "Val": 33.3
+      }
+    ],
+    "cambios_fijos_kg_t": { "enz_nsp_multi": 0.3 },
+    "cambios_ingredientes": [
+      {
+        "id": "fpkc",
+        "permitir": true,
+        "max_F1": 0.08,
+        "max_F2": 0.15,
+        "max_permitido_F1": 0.08,
+        "max_permitido_F2": 0.15,
+        "nutrientes": { "EM": 2022, "Lys": 0.454, "Met": 0.302, "MC": 0.54, "Trp": 0.151, "Thr": 0.497, "Val": 0.778, "Ile": 0.583, "Arg": 1.566 }
+      }
+    ],
+    "supuesto_clave_a_validar": "Liberacion neta >=60 kcal/kg EM y +0.006-0.012% AA dig. en maiz-soya mas +280 kcal/kg EM (+8% AA dig.) en FPKC a 300 g/t sin viscosidad excesiva ni cama humeda hasta 15% FPKC"
+  }
+]

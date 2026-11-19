@@ -1,0 +1,21 @@
+{
+  "id_propuesta": "E02_superdosis_fitasa_1500ftu",
+  "agente_id": "E02",
+  "titulo": "Superdosificación de Fitasa E. coli 1.500 FTU/kg (0,3 kg/t) con matriz extra-fosfórica completa",
+  "supuesto_clave_a_validar": "Validar en lote piloto biodisponibilidad real de 0,18% Pd, 0,165% Ca, 72 kcal EM, 0,025% Na y +0,028% Ile dig. a 1.500 FTU/kg y CV de mezclado (<5%) en microdosificación de 300 g/t.",
+  "cambios_ingredientes": [
+    {
+      "id": "fitasa",
+      "precio": 45000,
+      "max": 0.0003,
+      "max_F1": 0.0003,
+      "max_F2": 0.0003,
+      "nutrientes": {
+        "EM": 240000, "Ca": 550.0, "Pd": 600.0, "Na": 83.333, "Lys": 116.667, "Met": 43.333,
+        "MC": 93.333, "Thr": 113.333, "Trp": 30.0, "Val": 100.0, "Ile": 93.333, "Arg": 120.0
+      }
+    }
+  ],
+  "cambios_fijos_kg_t": { "fitasa": 0.3 },
+  "capex_adicional_cop": 0
+}

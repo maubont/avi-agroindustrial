@@ -1,0 +1,9 @@
+{
+  "id_propuesta": "R07_lisolecitina_conservadora",
+  "agente_id": "R07",
+  "titulo": "Lisolecitina polvo (500 g/t) en premezcla + palma 8.000 kcal/kg (+400) + matriz basal +20 kcal/kg (40.000) + tope 4,5%/5,0%",
+  "supuesto_clave_a_validar": "En mezcla seca (polvo en premezcla), 500 g/t de lisolecitina comercial ($26.000/kg) aportan +400 kcal/kg al aceite crudo de palma (8.000 kcal/kg) y +20 kcal/kg basales (matriz 40.000 kcal/kg), sin sobrecontar energia ni hidratar el tanque a 50 C.",
+  "nuevos_ingredientes": [{ "id": "lisolecitina", "nombre": "Emulsificante lisolecitina polvo en premezcla (500 g/t)", "precio": 26000, "min": 0.0005, "max": 0.0005, "max_F1": 0.0005, "max_F2": 0.0005, "EM": 40000 }],
+  "cambios_ingredientes": [{ "id": "aceite", "max_F1": 0.045, "max_F2": 0.050, "nutrientes": { "EM": 8000 } }],
+  "cambios_fijos_kg_t": { "lisolecitina": 0.5 }
+}

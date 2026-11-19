@@ -1,0 +1,27 @@
+{
+  "id_propuesta": "E19_harina_carne_hueso_bovina",
+  "agente_id": "E19",
+  "titulo": "Inclusión de Harina de Carne y Hueso Bovina 45% PC (reemplazo total de MCP)",
+  "supuesto_clave_a_validar": "Precio puesto en Cúcuta <= 2750 COP/kg desde planta registrada ICA en Bucaramanga (ej. Harinagro), digestibilidad pepsina >= 85% y ausencia de Salmonella.",
+  "nuevos_ingredientes": [
+    {
+      "id": "hch_bovina", "nombre": "Harina de carne y hueso bovina 45% PC (puesto Cúcuta)",
+      "precio": 2700, "min": 0, "max": 0.05, "max_F1": 0.04, "max_F2": 0.05,
+      "EM": 2250, "PC": 45.0, "EE": 10.5, "FC": 1.5, "Ca": 11.5, "Pd": 5.5, "Na": 0.65, "Cl": 0.55, "K": 0.50, "Lin": 0.45,
+      "Lys": 1.75, "Met": 0.52, "MC": 0.78, "Thr": 1.15, "Trp": 0.22, "Val": 1.55, "Ile": 1.05, "Arg": 2.70, "Col": 1800
+    },
+    {
+      "id": "h_visceras_ave", "nombre": "Harina de vísceras de ave 60% PC (puesto Cúcuta)",
+      "precio": 3900, "min": 0, "max": 0.06, "max_F1": 0.05, "max_F2": 0.06,
+      "EM": 3050, "PC": 60.0, "EE": 13.0, "FC": 1.5, "Ca": 4.2, "Pd": 2.1, "Na": 0.40, "Cl": 0.45, "K": 0.65, "Lin": 2.20,
+      "Lys": 3.10, "Met": 0.98, "MC": 1.55, "Thr": 2.05, "Trp": 0.48, "Val": 2.50, "Ile": 2.05, "Arg": 3.70, "Col": 3800
+    },
+    {
+      "id": "h_pescado", "nombre": "Harina de pescado 63% PC (puesto Cúcuta)",
+      "precio": 6800, "min": 0, "max": 0.05, "max_F1": 0.05, "max_F2": 0.03,
+      "EM": 3050, "PC": 63.0, "EE": 8.5, "FC": 0.8, "Ca": 4.0, "Pd": 2.5, "Na": 0.90, "Cl": 1.10, "K": 0.85, "Lin": 0.30,
+      "Lys": 4.35, "Met": 1.62, "MC": 2.15, "Thr": 2.35, "Trp": 0.60, "Val": 2.85, "Ile": 2.45, "Arg": 3.55, "Col": 4000
+    }
+  ],
+  "capex_adicional_cop": 2500000
+}

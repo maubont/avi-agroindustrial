@@ -1,0 +1,18 @@
+{
+  "id_propuesta": "R16_fpkc_integrado_realista",
+  "agente_id": "R16",
+  "titulo": "FPKC tamizado realista: Fase 1 secado solar/aire + antiox ($620/kg) vs Fase 2 extractora ($510/kg)",
+  "supuesto_clave_a_validar": "Fase 1 (sin extractora): $620/kg puesto Cúcuta (torta+lodo+10% pulidura estabilizada+secado solar/aire+tamizado <0,85 mm con crédito 22% grueso ganado+200 ppm antioxidante); Fase 2 (Tricanter+calor indirecto caldera+antiox): $510/kg. Peróxidos <10 mEq/kg.",
+  "cambios_ingredientes": [
+    {
+      "id": "fpkc", "precio": 620, "permitir": true,
+      "max_F1": 0.06, "max_F2": 0.12, "max_permitido_F1": 0.06, "max_permitido_F2": 0.12,
+      "nutrientes": {
+        "EM": 2180, "PC": 22.0, "EE": 11.2, "FC": 6.5, "Ca": 0.30, "Pd": 0.36, "Na": 0.03, "Cl": 0.06, "K": 0.76, "Lin": 0.90,
+        "Lys": 0.54, "Met": 0.32, "MC": 0.58, "Trp": 0.16, "Thr": 0.52, "Val": 0.80, "Ile": 0.61, "Arg": 1.52, "Col": 1250
+      }
+    }
+  ],
+  "cambios_fijos_kg_t": { "antiox": 0.2 },
+  "capex_adicional_cop": 0
+}

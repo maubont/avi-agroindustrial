@@ -1,0 +1,12 @@
+{
+  "id_propuesta": "R18_minerales_seguros_gaa_real",
+  "agente_id": "R18",
+  "titulo": "Minerales seguros (caliza+DCP+Na2SO4 acotado) + GAA a precio real Evonik",
+  "cambios_ingredientes": [{ "id": "caco3", "precio": 200 }],
+  "nuevos_ingredientes": [
+    { "id": "dcp", "nombre": "Fosfato dicálcico (18,5% Pd, 22% Ca)", "precio": 3700, "min": 0, "max": 0.03, "max_F1": 0.03, "max_F2": 0.03, "Ca": 22.0, "Pd": 18.5 },
+    { "id": "na2so4", "nombre": "Sulfato de sodio anhidro (32,4% Na, 22,5% S, tope 1,5 kg/t)", "precio": 1800, "min": 0, "max": 0.0015, "max_F1": 0.0015, "max_F2": 0.0015, "Na": 32.4 },
+    { "id": "gaa", "nombre": "Ácido guanidinoacético 96% (CreAMINO, micro-mezcla)", "precio": 42000, "min": 0, "max": 0.0006, "max_F1": 0.0006, "max_F2": 0.0006, "EM": 83000, "PC": 221, "Arg": 77 }
+  ],
+  "supuesto_clave_a_validar": "Cotización real CreAMINO Colombia ($35.000-$48.000/kg, micro-mezcla 600 g/t con Met/colina suficientes) y límite de S total en cama con Na2SO4 <=1,5 kg/t + FPKC."
+}
